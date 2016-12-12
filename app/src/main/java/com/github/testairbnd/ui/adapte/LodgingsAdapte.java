@@ -50,7 +50,18 @@ public class LodgingsAdapte extends RecyclerView.Adapter<LodgingsAdapte.ViewHold
     final Result result = results.get(position);
     holder.mName.setText(result.getListing().getName());
     holder.mType.setText(result.getListing().getRoom_type());
-    holder.mPrice.setText(Integer.toString(result.getPricingQuote().getLocalized_nightly_price()) + " " + result.getPricingQuote().getLocalized_currency());
+
+    String currency;
+    if (!result.getPricingQuote().getLocalized_currency().isEmpty()) {
+      currency = result.getPricingQuote().getLocalized_currency();
+    } else {
+      if (!result.getPricingQuote().getListing_currency().isEmpty()) {
+        currency = result.getPricingQuote().getListing_currency();
+      } else {
+        currency = "USD";
+      }
+    }
+    holder.mPrice.setText(Integer.toString(result.getPricingQuote().getLocalized_nightly_price()) + " " + currency);
     String url = result.getListing().getPicture_url();
     Picasso.with(context).load(url)
       .noFade()

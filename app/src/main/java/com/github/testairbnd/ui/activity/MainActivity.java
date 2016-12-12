@@ -227,15 +227,15 @@ public class MainActivity extends BaseActivity implements MainContact.View {
   private void selectItem(MenuItem itemDrawer) {
     switch (itemDrawer.getItemId()) {
       case R.id.nav_home:
-        setTitle(itemDrawer.getTitle());
+        setTitle("Home");
         Usefulness.gotoFragment(new DataReplace(getSupportFragmentManager(), HomeFragment.newInstance(), R.id.main_content));
         break;
       case R.id.nav_favorite:
-        setTitle(itemDrawer.getTitle());
+        setTitle("Favorite");
         Usefulness.gotoFragment(new DataReplace(getSupportFragmentManager(), FavoriteFragment.newInstance(), R.id.main_content));
         break;
       case R.id.nav_map:
-        setTitle(itemDrawer.getTitle());
+        setTitle("Map");
         Usefulness.gotoFragment(new DataReplace(getSupportFragmentManager(), MapFragment.newInstance(), R.id.main_content));
         break;
     }

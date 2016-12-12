@@ -123,7 +123,7 @@ public class MapFragment extends BaseFragment implements MapContract.View,
 
   @Override
   public void setTitle() {
-    ab.setTitle("Map");
+//    ab.setTitle("Map");
   }
 
   @Override

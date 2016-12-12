@@ -46,9 +46,12 @@ public class LodgingsLocalDataSource implements LodgingsDataSource {
   @Override
   public void addLodgingsFavorite(@NonNull final ListingDetail listingDetail, @NonNull final AddLodgingFavoriteCallback callback) {
     Log.d(TAG, "addLodgingsFavorite: ");
-    realm.beginTransaction();
-    realm.copyToRealmOrUpdate(listingDetail);
-    realm.cancelTransaction();
+    realm.executeTransaction(new Realm.Transaction() {
+      @Override
+      public void execute(Realm realm) {
+        realm.copyToRealmOrUpdate(listingDetail);
+      }
+    });
   }
 
   @Override

@@ -82,7 +82,7 @@ public class FavoriteFragment extends BaseFragment implements FavoriteContract.V
 
   @Override
   public void setTitle() {
-    ab.setTitle("Favorite");
+//    ab.setTitle("Favorite");
   }
 
   @Override

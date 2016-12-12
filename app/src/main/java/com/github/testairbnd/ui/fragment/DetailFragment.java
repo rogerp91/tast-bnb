@@ -40,6 +40,7 @@ import com.squareup.picasso.Picasso;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 import static com.github.testairbnd.R.id.map;
 import static com.github.testairbnd.R.id.place;
@@ -427,6 +428,11 @@ public class DetailFragment extends BaseFragment implements ItemDetailContract.V
   @Override
   public void showMessage(String message) {
     Usefulness.showMessage(getView(), message, Snackbar.LENGTH_LONG);
+  }
+
+  @OnClick(R.id.text_try_again)
+  void onClickTryAgain() {//Retry
+    presenter.start(id);
   }
 
 }

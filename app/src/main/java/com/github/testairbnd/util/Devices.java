@@ -57,7 +57,8 @@ public class Devices {
       } else {
         return false;
       }
+    }else{
+      return true;
     }
-    return false;
   }
 }

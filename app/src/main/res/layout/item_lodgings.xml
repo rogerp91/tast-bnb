@@ -24,7 +24,7 @@
       android:src="@drawable/ex_airbnd" />
 
     <android.support.v7.widget.CardView
-      android:layout_width="75dp"
+      android:layout_width="85dp"
       android:layout_height="37dp"
       android:layout_alignParentBottom="true"
       android:layout_alignParentLeft="true"

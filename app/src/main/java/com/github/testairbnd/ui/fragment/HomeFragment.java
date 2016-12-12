@@ -158,6 +158,7 @@ public class HomeFragment extends BaseFragment implements
   @Override
   public void onStart() {
     super.onStart();
+    mGoogleApiClient.connect();
     try {
       adapte.clearData();
     } catch (NullPointerException e) {
@@ -175,7 +176,6 @@ public class HomeFragment extends BaseFragment implements
     filter.addAction(INTENT_ACTION_PERMISSION_SUCCESS);
     filter.addAction(INTENT_ACTION_NOT_GPS_ACTIVE);
     getActivity().registerReceiver(receiver, filter);
-    mGoogleApiClient.connect();
   }
 
   @Override
@@ -232,7 +232,7 @@ public class HomeFragment extends BaseFragment implements
 
   @Override
   public void setTitle() {
-    ab.setTitle("Home");
+//    ab.setTitle("Home");
   }
 
   @Override
