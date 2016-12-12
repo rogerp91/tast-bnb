@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.github.roger91.mlprogress.MlProgress
+        android:id="@+id/progress"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal|bottom"
+        android:visibility="visible"
+        wheel:rpProg_barColor="@color/colorPrimary"
+        wheel:rpProg_progressIndeterminate="true" />
+
+    <RelativeLayout
+        android:id="@+id/layout_message"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/text_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/text_try_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_message"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Retry"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <!-- Permission -->
+    <RelativeLayout
+        android:id="@+id/layout_message_per"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/text_message_per"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            tools:text="Required permission" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/text_try_again_per"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_message_per"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Retry"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="18sp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/btn_required_permission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_try_again_per"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="Open Permission"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <!-- GPS -->
+    <RelativeLayout
+        android:id="@+id/layout_message_gps"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/text_message_gps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            tools:text="Required active GPS" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/text_try_again_gps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_message_gps"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Retry"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="18sp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/btn_required_gps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_try_again_gps"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="Open Setting GPS"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <!-- Localitation -->
+    <RelativeLayout
+        android:id="@+id/layout_message_loc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/text_message_loc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            tools:text="Your location was not found" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/text_try_again_loc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_message_loc"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Retry"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="18sp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/btn_required_loc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_try_again_loc"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="Show location in Los Angeles"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+</merge>

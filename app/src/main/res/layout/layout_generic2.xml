@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:gravity="center">
+
+    <android.support.v7.widget.RecyclerView
+      android:id="@+id/recycler_list"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="4dp" />
+
+    <include
+      android:id="@+id/progress"
+      layout="@layout/layout_progress" />
+
+  </RelativeLayout>
+
+</merge>
