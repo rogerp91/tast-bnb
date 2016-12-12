@@ -434,12 +434,14 @@ public class HomeFragment extends BaseFragment implements
 
   @OnClick(R.id.text_try_again_per)
   void onClickTryAgainPer() {//Retry
+    Log.d(TAG, "onClickTryAgainPer: ");
     presenter.showViewProgress();
     presenter.findPosition(mLastLocation, true);
   }
 
   @OnClick(R.id.btn_required_permission)
   void onClickRequiredPer() {
+    Log.d(TAG, "onClickRequiredPer: ");
     final Intent i = new Intent();
     i.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
     i.addCategory(Intent.CATEGORY_DEFAULT);

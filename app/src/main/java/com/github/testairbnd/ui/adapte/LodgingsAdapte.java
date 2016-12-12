@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -24,7 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Roger Patiño on 08/12/2016.
+ * Created by Roger Patiño on 11/12/2016.
  */
 public class LodgingsAdapte extends RecyclerView.Adapter<LodgingsAdapte.ViewHolder> {
 
@@ -74,14 +73,6 @@ public class LodgingsAdapte extends RecyclerView.Adapter<LodgingsAdapte.ViewHold
         onItemClickAddLodgings.gotoDetails(new BundleDetail(result.getListing().getId(), result.getListing().getName(), result.getListing().getPicture_url()));
       }
     });
-
-    holder.mBtnFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-      public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (isChecked) {
-        } else {
-        }
-      }
-    });
   }
 
   @Override
@@ -119,12 +110,9 @@ public class LodgingsAdapte extends RecyclerView.Adapter<LodgingsAdapte.ViewHold
     @BindView(R.id.btn_favorite)
     ToggleButton mBtnFavorite;
 
-    private LodgingsAdapte father = null;
-
     ViewHolder(View view, LodgingsAdapte father) {
       super(view);
       ButterKnife.bind(this, view);
-      this.father = father;
     }
   }
 

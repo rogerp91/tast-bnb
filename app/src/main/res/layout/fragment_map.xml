@@ -4,11 +4,20 @@
   android:layout_height="match_parent"
   android:orientation="vertical">
 
-  <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/map"
-    class="com.google.android.gms.maps.SupportMapFragment"
+  <RelativeLayout
+    android:id="@+id/container_map"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+    android:visibility="gone">
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/map"
+      class="com.google.android.gms.maps.SupportMapFragment"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
+
+  </RelativeLayout>
+
 
   <!--<android.support.design.widget.FloatingActionButton-->
   <!--android:id="@+id/reload"-->

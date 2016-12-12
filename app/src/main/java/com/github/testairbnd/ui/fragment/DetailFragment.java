@@ -432,6 +432,7 @@ public class DetailFragment extends BaseFragment implements ItemDetailContract.V
 
   @OnClick(R.id.text_try_again)
   void onClickTryAgain() {//Retry
+    Log.d(TAG, "onClickTryAgain: ");
     presenter.start(id);
   }
 
