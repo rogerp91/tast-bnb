@@ -69,10 +69,10 @@
         <service
             android:name=".service.GeofenceService"
             android:enabled="true"
-            android:process=":geofence"></service>
+            android:process=":geofence" />
 
         <activity
-            android:name=".ui.activity.MapsActivity"
+            android:name=".ui.MapsActivity"
             android:label="@string/title_activity_maps"></activity>
     </application>
 
