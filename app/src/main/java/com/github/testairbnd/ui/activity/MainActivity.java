@@ -21,7 +21,6 @@ import com.github.rogerp91.pref.SP;
 import com.github.testairbnd.R;
 import com.github.testairbnd.contract.MainContact;
 import com.github.testairbnd.data.model.DataReplace;
-import com.github.testairbnd.service.ManagerService;
 import com.github.testairbnd.ui.fragment.FavoriteFragment;
 import com.github.testairbnd.ui.fragment.HomeFragment;
 import com.github.testairbnd.ui.fragment.MapFragment;
@@ -78,7 +77,6 @@ public class MainActivity extends BaseActivity implements MainContact.View {
     setNav(savedInstanceState);
 
     Devices.isMarshmallowCheckCoarseFine(this);
-    ManagerService.actionStartLocation(getApplicationContext());
 
   }
 

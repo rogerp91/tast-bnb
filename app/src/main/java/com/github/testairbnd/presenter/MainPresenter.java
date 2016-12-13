@@ -4,11 +4,15 @@ import android.location.LocationManager;
 import android.support.annotation.NonNull;
 
 import com.github.testairbnd.contract.MainContact;
+import com.github.testairbnd.service.GeofenceService;
+import com.github.testairbnd.service.ManagerService;
 import com.github.testairbnd.util.Devices;
+import com.github.testairbnd.util.ServiceTools;
 
 import javax.inject.Inject;
 
 import static android.content.Context.LOCATION_SERVICE;
+import static com.facebook.FacebookSdk.getApplicationContext;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
@@ -39,6 +43,10 @@ public class MainPresenter implements MainContact.Presenter {
       if (Devices.hasPermission(null, "android.permission.ACCESS_FINE_LOCATION") || Devices.hasPermission(null, "android.permission.ACCESS_COARSE_LOCATION")) {
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && !locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
           view.showDialogGPS();
+        } else {
+          if (!ServiceTools.isServiceRunning(GeofenceService.class.getSimpleName())) {
+            ManagerService.actionStartLocation(getApplicationContext());
+          }
         }
       } else {
         view.locationFail();
@@ -46,6 +54,10 @@ public class MainPresenter implements MainContact.Presenter {
     } else {
       if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && !locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
         view.showDialogGPS();
+      } else {
+        if (!ServiceTools.isServiceRunning(GeofenceService.class.getSimpleName())) {
+          ManagerService.actionStartLocation(getApplicationContext());
+        }
       }
     }
   }
