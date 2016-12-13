@@ -1,6 +1,6 @@
 "# test-bnb"
  
- ### Paquetes de proyecto 
+### Paquetes de proyecto 
 
 ```
 contract: Contractos - Model-View-Presenter
