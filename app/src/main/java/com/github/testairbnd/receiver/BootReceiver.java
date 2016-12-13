@@ -11,8 +11,11 @@ import com.github.testairbnd.service.ManagerService;
  */
 
 public class BootReceiver extends BroadcastReceiver {
+
   @Override
   public void onReceive(Context context, Intent intent) {
-    ManagerService.actionStartLocation(context);
+    if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
+      ManagerService.actionStartLocation(context);
+    }
   }
 }

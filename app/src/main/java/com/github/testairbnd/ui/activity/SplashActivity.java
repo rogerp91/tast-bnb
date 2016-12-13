@@ -19,7 +19,7 @@ public class SplashActivity extends AppCompatActivity {
     dataIntent.setAnim(true);
     dataIntent.setFinish(true);
     if (!session) {
-      dataIntent.setClass_(MainActivity.class);
+      dataIntent.setClass_(MainActivity.class);// Change to LoginActivity.class
     } else {
       dataIntent.setClass_(MainActivity.class);
     }
