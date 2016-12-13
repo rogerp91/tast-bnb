@@ -18,7 +18,7 @@ public class LodgingsRepository implements LodgingsDataSource {
   private LodgingsDataSource remote;
 
   @Inject
-  LodgingsRepository(@Named("local") LodgingsDataSource local, @Named("remote") LodgingsDataSource remote) {
+  public LodgingsRepository(@Named("local") LodgingsDataSource local, @Named("remote") LodgingsDataSource remote) {
     this.local = local;
     this.remote = remote;
   }

@@ -30,6 +30,7 @@ import com.github.testairbnd.R;
 import com.github.testairbnd.contract.MapContract;
 import com.github.testairbnd.data.model.Locality;
 import com.github.testairbnd.util.Usefulness;
+import com.github.testairbnd.util.ViewMarker;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
@@ -40,8 +41,10 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
@@ -66,6 +69,7 @@ import static com.github.testairbnd.util.Constants.UPDATE_INTERVAL;
  */
 
 public class MapFragment extends BaseFragment implements MapContract.View,
+  GoogleMap.OnMarkerClickListener,
   OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,
   GoogleApiClient.OnConnectionFailedListener {
 
@@ -126,6 +130,7 @@ public class MapFragment extends BaseFragment implements MapContract.View,
     //Presenter
     presenter.setView(this);
 
+    // Map
     mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(map);
     mapFragment.getMapAsync(this);
     if (mapFragment == null && getActivity() != null) {
@@ -134,9 +139,10 @@ public class MapFragment extends BaseFragment implements MapContract.View,
       mapFragment = SupportMapFragment.newInstance();
       fragmentTransaction.replace(map, mapFragment).commit();
     }
+    mMap.setOnMarkerClickListener(this);
 
-    mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
-      .addConnectionCallbacks(this)
+    // Localitation
+    mGoogleApiClient = new GoogleApiClient.Builder(getActivity()).addConnectionCallbacks(this)
       .addOnConnectionFailedListener(this)
       .addApi(LocationServices.API)
       .build();
@@ -200,44 +206,36 @@ public class MapFragment extends BaseFragment implements MapContract.View,
 
   @Override
   public void showModels(List<Locality> localities) {
-    View markerView;
     List<MarkerOptions> markerOptionses = new ArrayList<>();
     LatLngBounds.Builder builder = new LatLngBounds.Builder();
+
     for (int x = 0; x < localities.size(); x++) {
-      markerView = ((LayoutInflater) getActivity().getSystemService(LAYOUT_INFLATER_SERVICE)).inflate(R.layout.map_marker, null);
-      TextView textView = (TextView)markerView.findViewById(R.id.price);
+      // View for card with price
+      View markerView = ((LayoutInflater) getActivity().getSystemService(LAYOUT_INFLATER_SERVICE)).inflate(R.layout.map_marker, null);
+      TextView textView = (TextView) markerView.findViewById(R.id.price);
       textView.setText(localities.get(x).getPrice() + " " + localities.get(x).getLocalized_currency());
+
+      // Add Market
       MarkerOptions marker = new MarkerOptions()
         .position(new LatLng(localities.get(x).getLatitud(), localities.get(x).getLongitud()))
-        .title(Integer.toString(localities.get(x).getPrice()) + localities.get(x).getLocalized_currency())
-        ;
+        .icon(BitmapDescriptorFactory.fromBitmap(ViewMarker.createDrawableFromView(getActivity(), markerView)));
       markerOptionses.add(marker);
     }
+
+    // Mapper Market
     for (int i = 0; i < markerOptionses.size(); i++) {
       mMap.addMarker(markerOptionses.get(i));
       builder.include(markerOptionses.get(i).getPosition());
     }
+
+    // Bounds Market
     LatLngBounds bounds = builder.build();
     int width = getResources().getDisplayMetrics().widthPixels;
     int height = getResources().getDisplayMetrics().heightPixels;
-    int padding = (int) (width * 0.10); // offset from edges of the map 12% of screen
+    int padding = (int) (width * 0.10);
     CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, width, height, padding);
     mMap.animateCamera(cu);
 
-//    MarkerOptions marker = new MarkerOptions().position(new LatLng(localities.get(x).getLatitud(), localities.get(x).getLongitud())).title(Integer.toString(localities.get(x).getPrice()) + localities.get(x).getLocalized_currency());
-//    markerOptionses.add(marker);
-//    marker.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
-//    mMap.addMarker(marker);
-//    mMap.setMyLocationEnabled(true);
-//    for (int i = 0; i < markerOptionses.size(); i++) {
-//      mMap.addMarker(markerOptionses.get(i));
-//      builder.include(markerOptionses.get(i).getPosition());
-//    }
-
-//    LatLngBounds bounds = builder.build();
-//    int padding = 0; // offset from edges of the map in pixels
-//    CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
-//    mMap.animateCamera(cu);
   }
 
   @Override
@@ -473,5 +471,10 @@ public class MapFragment extends BaseFragment implements MapContract.View,
   void onClickRequiredLoc() {
     presenter.showViewProgress();
     presenter.failGetPosition();
+  }
+
+  @Override
+  public boolean onMarkerClick(Marker marker) {
+    return false;
   }
 }
