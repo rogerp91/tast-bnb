@@ -1,6 +1,7 @@
 "# test-bnb"
  
- ### Paquetes de proyecto
+ ### Paquetes de proyecto 
+
 ```
 contract: Contractos - Model-View-Presenter
 data: model y source
@@ -15,4 +16,30 @@ acvity: Actividades
 adapte: Adaptadores
 fragment: Fragmentos
 util: Utilidades
+```
+
+### Librerias
+
+``` 
+  circleimageview
+  appcompat-v7
+  permissiongen
+  support-v4:
+  design
+  dagger
+  retrofit2
+  gson
+  picasso
+  logging-interceptor
+  cardview-v7
+  recyclerview-v7
+  butterknife
+  facebook-android-sdk
+  MlProgress
+  ManagerSharedPreferences
+  material-dialogs
+  play-services-location
+  support-annotations
+  play-services-maps
+  
 ```

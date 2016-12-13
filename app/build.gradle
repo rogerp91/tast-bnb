@@ -47,7 +47,6 @@ android {
 dependencies {
   compile fileTree(include: ['*.jar'], dir: 'libs')
   compile 'de.hdodenhof:circleimageview:2.1.0'
-  compile 'de.hdodenhof:circleimageview:2.1.0'
   compile 'com.android.support:appcompat-v7:25.0.1'
   compile 'com.lovedise:permissiongen:0.0.6'
   compile 'com.android.support:support-v4:25.0.1'
