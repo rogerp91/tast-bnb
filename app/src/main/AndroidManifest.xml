@@ -3,6 +3,8 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.github.testairbnd">
 
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -55,10 +57,19 @@
       android:noHistory="true"
       android:theme="@style/AppTheme.NoActionBar"/>
 
+    <receiver
+      android:name=".receiver.BootReceiver"
+      android:enabled="false">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </receiver>
+
     <service
       android:name=".service.GeofenceService"
-      android:process=":geofence"
-      android:enabled="true">
+      android:enabled="true"
+      android:process=":geofence">
 
     </service>
   </application>

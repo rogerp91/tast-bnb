@@ -47,12 +47,18 @@ public class GeofenceService extends BaseService implements GoogleApiClient.Conn
 
   protected static String TAG = GeofenceService.class.getSimpleName();
 
+  /**
+   * {@link LodgingsRepository}
+   */
   private LodgingsDataSource repository;
 
   protected GoogleApiClient mGoogleApiClient;
   private LocationRequest mLocationRequest;
   protected LocationManager locationManager;
+
+  // Is running services?
   public static boolean INSTANCE = false;
+
   private Handler mHandler;
   private LocationThread mLocation = null;
 
@@ -80,6 +86,19 @@ public class GeofenceService extends BaseService implements GoogleApiClient.Conn
       stopSelf();
     }
     return Service.START_REDELIVER_INTENT;
+  }
+
+  @Override
+  public void onDestroy() {
+    super.onDestroy();
+    INSTANCE = false;
+    SP.putInt(ManagerService.ENABLE, 0);
+    if (mGoogleApiClient != null) {
+      mGoogleApiClient.unregisterConnectionCallbacks(this);
+      mGoogleApiClient.unregisterConnectionFailedListener(this);
+      mGoogleApiClient.disconnect();
+      mGoogleApiClient = null;
+    }
   }
 
   private void start() {

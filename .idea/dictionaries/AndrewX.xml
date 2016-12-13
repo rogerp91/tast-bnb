@@ -5,9 +5,12 @@
       <w>airbnb</w>
       <w>backgroud</w>
       <w>geocoder</w>
+      <w>geofence</w>
+      <w>github</w>
       <w>localitation</w>
       <w>optionses</w>
       <w>permision</w>
+      <w>testairbnd</w>
     </words>
   </dictionary>
 </component>
