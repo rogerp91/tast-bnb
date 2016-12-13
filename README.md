@@ -1,6 +1,7 @@
 "# test-bnb"
  
-```Paquetes de proyecto
+ ### Paquetes de proyecto
+```
 contract: Contractos - Model-View-Presenter
 data: model y source
 model: Modelos de objetos
