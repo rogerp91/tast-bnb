@@ -1,33 +1,33 @@
 <resources>
-  <string name="app_name">TestAirbnb</string>
+    <string name="app_name">TestAirbnb</string>
 
-  <string name="facebook_app_id">1838108706471527</string>
-  <string name="title_activity_maps">Map</string>
-  <string name="nav_title_home">Home</string>
-  <string name="nav_title_favorite">Favorite</string>
-  <string name="nav_title_map">Map</string>
+    <string name="facebook_app_id">1838108706471527</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="nav_title_home">Home</string>
+    <string name="nav_title_favorite">Favorite</string>
+    <string name="nav_title_map">Map</string>
 
-  <!-- TODO: Dialogo GPS-->
-  <string name="setting_gps_title">GPS Settings</string>
-  <string name="setting_gps_content">GPS is not activated. Go to the setup menu?</string>
-  <string name="setting_gps_agree">Go</string>
-  <string name="setting_gps_disagree">Get out</string>
-  <string name="acept">To accept</string>
+    <!-- TODO: Dialogo GPS-->
+    <string name="setting_gps_title">GPS Settings</string>
+    <string name="setting_gps_content">GPS is not activated. Go to the setup menu?</string>
+    <string name="setting_gps_agree">Go</string>
+    <string name="setting_gps_disagree">Get out</string>
+    <string name="acept">To accept</string>
 
 
-  <!-- Error or problem-->
-  <string name="no_data_available_favorite">No accommodation in favorites</string>
-  <string name="no_data_available">No data available</string>
-  <string name="no_connection">No internet connection</string>
-  <string name="try_again">Try again</string>
-  <string name="error_occurred">An error has occurred, try again</string>
-  <string name="error_many">An error occurred that you can not control. Contact Airbnb</string>
+    <!-- Error or problem-->
+    <string name="no_data_available_favorite">No accommodation in favorites</string>
+    <string name="no_data_available">No data available</string>
+    <string name="no_connection">No internet connection</string>
+    <string name="try_again">Try again</string>
+    <string name="error_occurred">An error has occurred, try again</string>
+    <string name="error_many">An error occurred that you can not control. Contact Airbnb</string>
 
-  <string name="active_gps">Activate gps</string>
-  <string name="require_permission">Requires location permission</string>
-  <string name="no_location">Your location was not found</string>
+    <string name="active_gps">Activate gps</string>
+    <string name="require_permission">Requires location permission</string>
+    <string name="no_location">Your location was not found</string>
   <string name="description">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque blanditiis cumque eos, fuga harum in ipsa ipsam magni nesciunt nulla, quae quod sequi sint sunt tenetur velit vero? Dolor! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque blanditiis cumque eos, fuga harum in ipsa ipsam magni nesciunt nulla, quae quod sequi sint sunt tenetur velit vero? Dolor! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque blanditiis cumque eos, fuga harum in ipsa ipsam magni nesciunt nulla, quae quod sequi sint sunt tenetur velit vero? Dolor!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque blanditiis cumque eos, fuga harum in ipsa ipsam magni nesciunt nulla, quae quod sequi sint sunt tenetur velit vero? Dolor!
   </string>
-  <string name="favorite">Favorite</string>
+    <string name="favorite">Favorite</string>
 </resources>
