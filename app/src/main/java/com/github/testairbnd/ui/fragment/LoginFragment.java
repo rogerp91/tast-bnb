@@ -2,6 +2,7 @@ package com.github.testairbnd.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,13 +42,19 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         injectView(view);
+
         // Presenter
         presenter.setView(this);
-        init();
         return view;
     }
 
-    @Override
+  @Override
+  public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    init();
+  }
+
+  @Override
     public void goSuccess() {
         DataIntent dataIntent = new DataIntent();
         dataIntent.setActivity(getActivity());

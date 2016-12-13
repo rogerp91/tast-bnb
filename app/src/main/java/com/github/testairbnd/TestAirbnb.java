@@ -28,8 +28,12 @@ import io.realm.RealmConfiguration;
 
 public class TestAirbnb extends Application {
 
+  private final static String TAG = TestAirbnb.class.getSimpleName();
+
+  // Dagger
   private ObjectGraph objectGraph;
 
+  // App Global
   private static TestAirbnb instance;
 
   /**
@@ -51,19 +55,26 @@ public class TestAirbnb extends Application {
     super.onCreate();
     instance = this;
 
+    //Preference Shared
     new SP.Builder()
       .setContext(this)
       .setMode(ContextWrapper.MODE_PRIVATE)
       .setPrefsName(getPackageName())
       .setUseDefaultSharedPreference(true).build();
 
+    // DB
     Realm.init(this);
     RealmConfiguration config = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
     Realm.setDefaultConfiguration(config);
 
+    // Facebook
     FacebookSdk.sdkInitialize(getApplicationContext());
     AppEventsLogger.activateApp(this);
+
+    //Dagger
     initDependencyInjection();
+
+    //Hash
     printKeyHash();
   }
 
@@ -79,7 +90,7 @@ public class TestAirbnb extends Application {
   }
 
   /**
-   * Inject
+   * Inject to {@link Application}
    */
   public void initDependencyInjection() {
     objectGraph = ObjectGraph.create(new AppModules(this));
@@ -87,13 +98,16 @@ public class TestAirbnb extends Application {
     objectGraph.injectStatics();
   }
 
+  /**
+   * Hash
+   */
   public void printKeyHash() {
     try {
       PackageInfo info = getPackageManager().getPackageInfo("com.github.testairbnd", PackageManager.GET_SIGNATURES);
       for (Signature signature : info.signatures) {
         MessageDigest md = MessageDigest.getInstance("SHA");
         md.update(signature.toByteArray());
-        Log.d("TestAirbnb SHA: ", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+        Log.d(TAG, "SHA: " + Base64.encodeToString(md.digest(), Base64.DEFAULT));
       }
     } catch (PackageManager.NameNotFoundException | NoSuchAlgorithmException e) {
       e.printStackTrace();

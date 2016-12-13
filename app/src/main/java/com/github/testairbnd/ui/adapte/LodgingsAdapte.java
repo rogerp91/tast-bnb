@@ -41,7 +41,7 @@ public class LodgingsAdapte extends RecyclerView.Adapter<LodgingsAdapte.ViewHold
   @Override
   public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_lodgings, parent, false);
-    return new ViewHolder(view, this);
+    return new ViewHolder(view);
   }
 
   @Override
@@ -85,6 +85,9 @@ public class LodgingsAdapte extends RecyclerView.Adapter<LodgingsAdapte.ViewHold
     return results.get(position).getListing().getId();
   }
 
+  /**
+   * {@link com.github.testairbnd.ui.fragment.HomeFragment} onResume
+   */
   public void clearData() {
     results.clear(); //clear list
     notifyDataSetChanged(); //let your adapter know about the changes and reload view.
@@ -110,7 +113,7 @@ public class LodgingsAdapte extends RecyclerView.Adapter<LodgingsAdapte.ViewHold
     @BindView(R.id.btn_favorite)
     ToggleButton mBtnFavorite;
 
-    ViewHolder(View view, LodgingsAdapte father) {
+    ViewHolder(View view) {
       super(view);
       ButterKnife.bind(this, view);
     }

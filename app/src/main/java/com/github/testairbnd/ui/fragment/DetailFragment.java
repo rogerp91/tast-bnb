@@ -113,6 +113,7 @@ public class DetailFragment extends BaseFragment implements ItemDetailContract.V
 
   @BindView(R.id.price)
   TextView mPrice;
+
   @BindView(R.id.btn_favorite)
   ToggleButton mBtn_favorite;
 
@@ -140,6 +141,7 @@ public class DetailFragment extends BaseFragment implements ItemDetailContract.V
   public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     presenter.start(id);
+
     mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(map);
     mapFragment.getMapAsync(this);
     FragmentManager fragmentManager = getFragmentManager();
@@ -147,6 +149,7 @@ public class DetailFragment extends BaseFragment implements ItemDetailContract.V
     mapFragment = SupportMapFragment.newInstance();
     fragmentTransaction.replace(map, mapFragment).commit();
 
+    // Favorite or no
     mBtn_favorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
       @Override
       public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -163,20 +166,15 @@ public class DetailFragment extends BaseFragment implements ItemDetailContract.V
   @Override
   public void onMapReady(GoogleMap googleMap) {
     mMap = googleMap;
-//    LatLng sydney = new LatLng(-34, 151);
-//    mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//    mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
   }
 
   @Override
   public void setTitle() {
-    Log.d(TAG, "setTitle: ");
     ab.setTitle("Detail");
   }
 
   @Override
   public void setBackground(String url) {
-    Log.d(TAG, "setBackground: ");
     Picasso.with(getActivity()).load(url).noFade().error(R.drawable.logo_airbnb).into(mImgBackgroud);
   }
 
@@ -187,7 +185,6 @@ public class DetailFragment extends BaseFragment implements ItemDetailContract.V
 
   @Override
   public void setName(String name) {
-    Log.d(TAG, "setName: " + name);
     mName.setTextColor(Color.BLACK);
     mName.setText(name);
   }
@@ -234,16 +231,6 @@ public class DetailFragment extends BaseFragment implements ItemDetailContract.V
     mMap.addMarker(new MarkerOptions().position(place).title(""));
     mMap.moveCamera(CameraUpdateFactory.newLatLng(place));
     mMap.animateCamera(CameraUpdateFactory.zoomTo(5), 1, null);
-
-//    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(lat, log), 10);
-//    mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 1, null);
-//    mMap.getUiSettings().setZoomControlsEnabled(false);
-//    mMap.animateCamera(cameraUpdate);
-//    mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-//    MarkerOptions marker = new MarkerOptions().position(new LatLng(lat, lon)).icon(BitmapDescriptorFactory.fromResource(R.drawable.icono_ubicacion));
-//    mMap.addMarker(marker);
-
-
   }
 
   @Override
@@ -354,6 +341,12 @@ public class DetailFragment extends BaseFragment implements ItemDetailContract.V
     return from;
   }
 
+  /**
+   * @param tv         {@link TextView} of Layout
+   * @param maxLine    max line
+   * @param expandText Text
+   * @param viewMore
+   */
   public static void makeTextViewResizable(final TextView tv, final int maxLine, final String expandText, final boolean viewMore) {
 
     if (tv.getTag() == null) {
@@ -391,12 +384,20 @@ public class DetailFragment extends BaseFragment implements ItemDetailContract.V
         } catch (NullPointerException e) {
           Log.d(TAG, "onGlobalLayout: " + e.getMessage());
         }
-
       }
     });
 
   }
 
+	/**
+   *  Expandable tex
+   * @param strSpanned
+   * @param tv
+   * @param maxLine
+   * @param spanableText
+   * @param viewMore
+   * @return
+	 */
   private static SpannableStringBuilder addClickablePartTextViewResizable(final Spanned strSpanned, final TextView tv, final int maxLine, final String spanableText, final boolean viewMore) {
     String str = strSpanned.toString();
     SpannableStringBuilder ssb = new SpannableStringBuilder(strSpanned);
@@ -432,7 +433,6 @@ public class DetailFragment extends BaseFragment implements ItemDetailContract.V
 
   @OnClick(R.id.text_try_again)
   void onClickTryAgain() {//Retry
-    Log.d(TAG, "onClickTryAgain: ");
     presenter.start(id);
   }
 

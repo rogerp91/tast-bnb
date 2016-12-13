@@ -16,6 +16,8 @@ public interface MapContract {
 
   /**
    * TODO: View
+   * <p>
+   * {@link com.github.testairbnd.ui.fragment.MapFragment}
    */
   public interface View {
 
@@ -52,6 +54,7 @@ public interface MapContract {
 
   /**
    * TODO: Presenter
+   * {@link com.github.testairbnd.presenter.MapPresenter}
    */
   public interface Presenter {
 

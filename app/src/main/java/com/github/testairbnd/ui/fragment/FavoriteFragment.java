@@ -68,6 +68,7 @@ public class FavoriteFragment extends BaseFragment implements FavoriteContract.V
   @Override
   public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
+
     //Recycler
     recycler.setHasFixedSize(true);
     LinearLayoutManager linearManager = new LinearLayoutManager(getActivity());
@@ -171,6 +172,9 @@ public class FavoriteFragment extends BaseFragment implements FavoriteContract.V
     return isAdded();
   }
 
+  /**
+   * From {@link com.github.testairbnd.ui.adapte.LodgingsAdapte}
+   */
   public OnItemClickAddLodgings onClickAddFavorite = new OnItemClickAddLodgings() {
 
     @Override

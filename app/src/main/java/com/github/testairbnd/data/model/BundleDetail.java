@@ -4,9 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by AndrewX on 11/12/2016.
+ * Created by roge on 11/12/2016.
  */
-
 public class BundleDetail implements Parcelable {
   private int id;
   private String name;

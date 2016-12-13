@@ -14,6 +14,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * @see com.github.testairbnd.data.source.LodgingsDataSource
+ */
 public class LodgingsRemoteDataSource implements LodgingsDataSource {
 
   @Inject

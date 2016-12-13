@@ -14,8 +14,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 public class DetailPresenter implements DetailContract.Presenter {
 
-  private DetailContract.View view;
-
   @Inject
   public DetailPresenter() {
   }
@@ -23,19 +21,8 @@ public class DetailPresenter implements DetailContract.Presenter {
   @Override
   public void setView(@NonNull DetailContract.View view) {
     checkNotNull(view, "View not null!");
-    this.view = view;
-    this.view.setToolbar();
-    this.view.setActionBarUp();
-  }
-
-  @Override
-  public void onResume() {
-
-  }
-
-  @Override
-  public void init() {
-
+    view.setToolbar();
+    view.setActionBarUp();
   }
 
 }

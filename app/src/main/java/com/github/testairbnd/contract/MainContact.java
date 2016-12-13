@@ -9,36 +9,38 @@ import android.support.annotation.NonNull;
 
 public interface MainContact {
 
-    /**
-     * TODO: View
-     */
-    public interface View {
+  /**
+   * TODO: View
+   * <p>
+   * {@link com.github.testairbnd.ui.activity.MainActivity}
+   */
+  public interface View {
 
+    void setToolbar();
 
-        void setToolbar();
+    void setActionBarIcon();
 
-        void setActionBarIcon();
+    void showDialogGPS();
 
-        void showDialogGPS();
+    Context getContext();
 
-        Context getContext();
+    void locationFail();
 
-        void locationFail();
+    void locationSuccess();
+  }
 
-        void locationSuccess();
-    }
+  /**
+   * TODO: Presenter
+   * {@link com.github.testairbnd.presenter.MainPresenter}
+   */
+  public interface Presenter {
 
-    /**
-     * TODO: Presenter
-     */
-    public interface Presenter {
+    void setView(@NonNull View view);
 
-        void setView(@NonNull View view);
+    void onResume();
 
-        void onResume();
+    void init();
 
-        void init();
-
-    }
+  }
 
 }

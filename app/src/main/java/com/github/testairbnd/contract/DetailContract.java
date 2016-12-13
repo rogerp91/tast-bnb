@@ -6,31 +6,30 @@ import android.support.annotation.NonNull;
  * Created by roger on 09/12/16.
  */
 
+
 public interface DetailContract {
 
-    /**
-     * TODO: View
-     */
-    public interface View {
+  /**
+   * TODO: View
+   * <p>
+   * {@link com.github.testairbnd.ui.activity.DetailActivity}
+   */
+  public interface View {
 
+    void setToolbar();
 
-        void setToolbar();
+    void setActionBarUp();
 
-        void setActionBarUp();
+  }
 
-    }
+  /**
+   * TODO: Presenter
+   * {@link com.github.testairbnd.presenter.DetailPresenter}
+   */
+  public interface Presenter {
 
-    /**
-     * TODO: Presenter
-     */
-    public interface Presenter {
+    void setView(@NonNull View view);
 
-        void setView(@NonNull View view);
-
-        void onResume();
-
-        void init();
-
-    }
+  }
 
 }

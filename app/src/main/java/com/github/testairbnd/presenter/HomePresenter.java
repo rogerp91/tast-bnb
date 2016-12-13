@@ -39,10 +39,18 @@ public class HomePresenter implements HomeContract.Presenter {
   //View
   private HomeContract.View view;
 
-  //Repository
+  /**
+   * Repository
+   * {@link com.github.testairbnd.data.source.repository.LodgingsRepository}
+   */
   private LodgingsDataSource repository;
 
+  /**
+   * @see Context of {@link TestAirbnb}
+   */
   private Context context = TestAirbnb.getContext();
+
+  //Is Gps active?
   private boolean gps = true;
 
   @Inject
@@ -58,17 +66,24 @@ public class HomePresenter implements HomeContract.Presenter {
 
   @Override
   public void onResume() {
+
+    // GPS active?
     if (CheckLocation.isActiveGPS((LocationManager) view.getContext().getSystemService(LOCATION_SERVICE))) {
       Log.d(TAG, "onResume: CheckLocation.isActiveGPS");
       notActiveGPS();
       return;
     }
 
+    // Is Marshmallow with permission
     if (!Devices.isMarshmallowPermissionCoarseFine()) {
       permissionFailed();
     }
   }
 
+  /**
+   * View show
+   * {@link com.github.testairbnd.ui.fragment.HomeFragment}
+   */
   @Override
   public void showViewProgress() {
     view.showErrorNotSolve(false);
@@ -80,6 +95,10 @@ public class HomePresenter implements HomeContract.Presenter {
     view.showProgress(true);
   }
 
+  /**
+   * View no show
+   * {@link com.github.testairbnd.ui.fragment.HomeFragment}
+   */
   @Override
   public void notShowView() {
     view.showProgress(false);
@@ -91,18 +110,29 @@ public class HomePresenter implements HomeContract.Presenter {
     view.showNoLocalitation(false);
   }
 
+  /**
+   * Show gps if active
+   * {@link com.github.testairbnd.ui.fragment.HomeFragment}
+   */
   @Override
   public void notActiveGPS() {
     notShowView();
     view.showActiveGPS(true);
   }
 
+  /**
+   * Failed permission
+   * {@link com.github.testairbnd.ui.fragment.HomeFragment}
+   */
   @Override
   public void permissionFailed() {
     notShowView();
     view.showPermission(true);
   }
 
+  /**
+   * @param from onProgress o onIndicator
+   */
   @Override
   public void localitationNoAvailable(boolean from) {
     if (from) {
@@ -119,6 +149,9 @@ public class HomePresenter implements HomeContract.Presenter {
 
   }
 
+  /**
+   * No use
+   */
   @Override
   public void deleteAllModels() {
     repository.deleteAllLodging();
@@ -129,15 +162,26 @@ public class HomePresenter implements HomeContract.Presenter {
     return gps;
   }
 
+  /**
+   * Location find
+   *
+   * @param mLastLocation {@link Location}
+   * @param from          onProgress o onIndicator
+   */
   @Override
   public void findPosition(Location mLastLocation, boolean from) {
     if (mLastLocation != null) {
+
+      // Get geocoder
       Geocoder geocoder = new Geocoder(context, Locale.getDefault());
       try {
+        // Select 1
         List<Address> list = geocoder.getFromLocation(mLastLocation.getLatitude(), mLastLocation.getLongitude(), 1);
+
         if (list != null && list.size() > 0) {
           Address address = list.get(0);
           if (address.getLocality() == null) {
+            // Found, call the Angels CA
             localitationNoAvailable(from);
           } else {
             if (from) {
@@ -148,17 +192,18 @@ public class HomePresenter implements HomeContract.Presenter {
           }
         }
       } catch (IOException e) {
-        Log.e(TAG, "findPosition: " + e.getMessage());
+        // Found, call the Angels CA
         localitationNoAvailable(from);
       }
     } else {
-      Log.d(TAG, "findPosition: 2");
+      // Found, call the Angels CA
       localitationNoAvailable(from);
     }
   }
 
   @Override
   public void failGetPosition() {
+    // call the Angels CA
     onProgress(CA);
   }
 
@@ -172,6 +217,9 @@ public class HomePresenter implements HomeContract.Presenter {
 
   }
 
+  /**
+   * @param location address.getAdminArea() != null) ? address.getLocality() + "," + address.getAdminArea() : address.getLocality()
+   */
   private void onProgress(String location) {
     repository.getLodgings(location, new LodgingsDataSource.LoadLodgingCallback() {
       @Override
@@ -225,6 +273,10 @@ public class HomePresenter implements HomeContract.Presenter {
     });
   }
 
+  /**
+   *
+   * @param location address.getAdminArea() != null) ? address.getLocality() + "," + address.getAdminArea() : address.getLocality()
+   */
   private void onIndicator(String location) {
     repository.refleshLodgings(new LodgingsDataSource.LoadLodgingCallback() {
       @Override
@@ -262,8 +314,11 @@ public class HomePresenter implements HomeContract.Presenter {
     });
   }
 
+  /**
+   * @param msg Message
+   */
   private void showMessage(String msg) {
-    if (!view.isActive()) {
+    if (!view.isActive()) { // is isAdded
       return;
     }
     view.setLoadingIndicator(false);

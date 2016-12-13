@@ -15,6 +15,8 @@ public interface HomeContract {
 
   /**
    * TODO: View
+   * <p>
+   * {@link com.github.testairbnd.ui.fragment.HomeFragment}
    */
   public interface View {
 
@@ -50,6 +52,7 @@ public interface HomeContract {
 
   /**
    * TODO: Presenter
+   * {@link com.github.testairbnd.presenter.HomePresenter}
    */
   public interface Presenter {
 

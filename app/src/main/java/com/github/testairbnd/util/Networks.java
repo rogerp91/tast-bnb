@@ -12,7 +12,7 @@ import com.github.testairbnd.TestAirbnb;
 public class Networks {
 
     /**
-     * Conexión
+     * Connexion
      *
      * @param context {@link Context}
      * @return boolean @{@link Boolean}

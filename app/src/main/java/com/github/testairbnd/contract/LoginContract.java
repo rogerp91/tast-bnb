@@ -10,35 +10,38 @@ import com.facebook.Profile;
 
 public interface LoginContract {
 
+  /**
+   * TODO: View
+   * <p>
+   * {@link com.github.testairbnd.ui.fragment.LoginFragment}
+   */
+  public interface View {
 
-    /**
-     * TODO: Vista ResponseLogin
-     */
-    public interface View {
+    void goSuccess();
 
-        void goSuccess();
+    void showCancelLogin();
 
-        void showCancelLogin();
+    void showError(String error);
 
-        void showError(String error);
+    boolean isActive();
 
-        boolean isActive();
+  }
 
-    }
 
-    /**
-     * TODO: MainPresenter
-     */
-    public interface Presenter {
+  /**
+   * TODO: Presenter
+   * {@link com.github.testairbnd.presenter.LoginPresenter}
+   */
+  public interface Presenter {
 
-        void setView(@NonNull View view);
+    void setView(@NonNull View view);
 
-        void onSuccess(Profile profile);
+    void onSuccess(Profile profile);
 
-        void onError(String error);
+    void onError(String error);
 
-        void onCancel();
+    void onCancel();
 
-    }
+  }
 
 }

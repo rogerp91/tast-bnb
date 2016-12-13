@@ -40,7 +40,7 @@ public class FavoriteLodgingsAdapte extends RecyclerView.Adapter<FavoriteLodging
   @Override
   public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_lodgings, parent, false);
-    return new ViewHolder(view, this);
+    return new ViewHolder(view);
   }
 
   @Override
@@ -49,10 +49,9 @@ public class FavoriteLodgingsAdapte extends RecyclerView.Adapter<FavoriteLodging
     holder.mName.setText(listingDetail.getName());
     holder.mType.setText(listingDetail.getRoom_type());
     holder.mPrice.setText(Integer.toString(listingDetail.getPrice()) + " " + listingDetail.getNative_currency());
+
     String url = listingDetail.getPicture_url();
-    Picasso.with(context).load(url)
-      .noFade()
-      .error(R.drawable.logo_airbnb)
+    Picasso.with(context).load(url).noFade().error(R.drawable.logo_airbnb)
       .into(holder.mImgBackgroud);
 
     holder.mContainerCard.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +89,7 @@ public class FavoriteLodgingsAdapte extends RecyclerView.Adapter<FavoriteLodging
     @BindView(R.id.price)
     TextView mPrice;
 
-    ViewHolder(View view, FavoriteLodgingsAdapte father) {
+    ViewHolder(View view) {
       super(view);
       ButterKnife.bind(this, view);
     }

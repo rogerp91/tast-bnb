@@ -16,18 +16,18 @@ import dagger.Provides;
 @Module(complete = false, library = true)
 public class DataSourceModule {
 
-    @Provides
-    @Singleton
-    @Named("local")
-    LodgingsDataSource provideLocalDataSourceLodgings(LodgingsLocalDataSource local) {
-        return local;
-    }
+  @Provides
+  @Singleton
+  @Named("local")
+  LodgingsDataSource provideLocalDataSourceLodgings(LodgingsLocalDataSource local) {
+    return local;
+  }
 
-    @Provides
-    @Singleton
-    @Named("remote")
-    LodgingsDataSource provideRemoteDataSourceLodgings(LodgingsRemoteDataSource remote) {
-        return remote;
-    }
+  @Provides
+  @Singleton
+  @Named("remote")
+  LodgingsDataSource provideRemoteDataSourceLodgings(LodgingsRemoteDataSource remote) {
+    return remote;
+  }
 
 }

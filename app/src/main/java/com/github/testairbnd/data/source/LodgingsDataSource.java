@@ -10,87 +10,80 @@ import java.util.List;
 
 public interface LodgingsDataSource {
 
-    interface LoadLodgingCallback {// Remote
+  interface LoadLodgingCallback {// Remote
 
-        void onLoaded(Lodging lodgings);
+    void onLoaded(Lodging lodgings);
 
-        void onDataNotAvailable();
+    void onDataNotAvailable();
 
-        void onErrorOcurred();
+    void onErrorOcurred();
 
-        void onErrorNotSolve();
+    void onErrorNotSolve();
 
-        void onErrorNetwork();
-    }
+    void onErrorNetwork();
+  }
 
-    interface LoadForIdLodgingCallback {// Remote for id
+  interface LoadForIdLodgingCallback {// Remote for id
 
-        void onLoaded(Detail detail);
+    void onLoaded(Detail detail);
 
-        void onDataNotAvailable();
+    void onDataNotAvailable();
 
-        void onErrorOcurred();
+    void onErrorOcurred();
 
-        void onErrorNotSolve();
+    void onErrorNotSolve();
 
-        void onErrorNetwork();
-    }
+    void onErrorNetwork();
+  }
 
-    interface GetLodgingCallback {// Local
+  interface GetLodgingFavoriteCallback {// Local Favorito
 
-        void onLoaded(List<ListingDetail> lodgings);
+    void onLoaded(List<ListingDetail> lodgings);
 
-        void onDataNotAvailable();
+    void onDataNotAvailable();
 
-    }
+  }
 
-    interface GetLodgingFavoriteCallback {// Local Favorito
+  interface AddLodgingFavoriteCallback {// add favorite
 
-        void onLoaded(List<ListingDetail> lodgings);
+    void onSuccess();
 
-        void onDataNotAvailable();
+    void onDataNotAvailable();
 
-    }
+    void onError();
+  }
 
-    interface AddLodgingFavoriteCallback {// add favorite
+  interface RemoveLodgingFavoriteCallback {// Remover favorite
 
-        void onSuccess();
+    void onSuccess();
 
-        void onDataNotAvailable();
+    void onDataNotAvailable();
 
-        void onError();
-    }
+    void onError();
+  }
 
-    interface RemoveLodgingFavoriteCallback {// Remover favorite
+  interface GetLodgingSimpleCallback {// Load one
 
-        void onSuccess();
+    void onLoaded(ListingDetail listingDetail);
 
-        void onDataNotAvailable();
+    void onDataNotAvailable();
 
-        void onError();
-    }
+  }
 
-    interface GetLodgingSimpleCallback {// Load one
+  void getLodgings(@NonNull String location, @NonNull LoadLodgingCallback callback);
 
-        void onLoaded(ListingDetail listingDetail);
+  void refleshLodgings(@NonNull LoadLodgingCallback callback);
 
-        void onDataNotAvailable();
+  void getLodgingsFavorite(@NonNull GetLodgingFavoriteCallback callback);
 
-    }
+  void addLodgingsFavorite(@NonNull ListingDetail listingDetail, @NonNull AddLodgingFavoriteCallback callback);
 
-    void getLodgings(@NonNull String location, @NonNull LoadLodgingCallback callback);
+  void removeLodgingsFavorite(int lodgingId, @NonNull RemoveLodgingFavoriteCallback callback);
 
-    void refleshLodgings(@NonNull LoadLodgingCallback callback);
+  void getFavoriteSimpleForId(int lodgingId, @NonNull GetLodgingSimpleCallback callback);
 
-    void getLodgingsFavorite(@NonNull GetLodgingFavoriteCallback callback);
+  void getLodgingForId(int lodgingId, @NonNull LoadForIdLodgingCallback callback);
 
-    void addLodgingsFavorite(@NonNull ListingDetail listingDetail, @NonNull AddLodgingFavoriteCallback callback);
+  void deleteAllLodging();
 
-    void removeLodgingsFavorite(int lodgingId, @NonNull RemoveLodgingFavoriteCallback callback);
-
-    void getFavoriteSimpleForId(int lodgingId, @NonNull GetLodgingSimpleCallback callback);
-
-    void getLodgingForId(int lodgingId, @NonNull LoadForIdLodgingCallback callback);
-
-    void deleteAllLodging();
 }

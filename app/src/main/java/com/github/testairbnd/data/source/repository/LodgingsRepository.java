@@ -12,6 +12,9 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+/**
+ * @see com.github.testairbnd.data.source.LodgingsDataSource
+ */
 public class LodgingsRepository implements LodgingsDataSource {
 
   private LodgingsDataSource local;

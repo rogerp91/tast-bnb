@@ -12,7 +12,6 @@ public class ProfileView {
     private TextView names;
     private CircleImageView circleImageView;
 
-
     public TextView getNames() {
         return names;
     }

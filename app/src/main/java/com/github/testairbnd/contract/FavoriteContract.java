@@ -12,18 +12,21 @@ import java.util.List;
 
 public interface FavoriteContract {
 
-    /**
-     * TODO: View
-     */
-    public interface View extends BaseView<List<ListingDetail>> {
+  /**
+   * TODO: View
+   * <p>
+   * {@link com.github.testairbnd.ui.fragment.FavoriteFragment}
+   */
+  public interface View extends BaseView<List<ListingDetail>> {
 
-    }
+  }
 
-    /**
-     * TODO: Presenter
-     */
-    public interface Presenter extends BasePresenter<FavoriteContract.View> {
+  /**
+   * TODO: Presenter
+   * {@link com.github.testairbnd.presenter.FavoritePresenter}
+   */
+  public interface Presenter extends BasePresenter<FavoriteContract.View> {
 
-    }
+  }
 
 }

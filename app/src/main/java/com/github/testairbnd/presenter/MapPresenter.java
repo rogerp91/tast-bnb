@@ -38,10 +38,24 @@ public class MapPresenter implements MapContract.Presenter {
   private final static String TAG = MapPresenter.class.getSimpleName();
 
   private MapContract.View view;
+  /**
+   * Repository
+   * {@link com.github.testairbnd.data.source.repository.LodgingsRepository}
+   */
   private LodgingsDataSource repository;
+
+  /**
+   * @see Context of {@link TestAirbnb}
+   */
   private Context context = TestAirbnb.getContext();
+
+  //Is Gps active?
   private boolean gps = true;
-  List<Locality> localities = null;
+
+  /**
+   * Cache
+   */
+  private List<Locality> localities = null;
 
   @Inject
   public MapPresenter(@Named("repository") LodgingsDataSource repository) {
@@ -61,11 +75,14 @@ public class MapPresenter implements MapContract.Presenter {
 
   @Override
   public void onResume() {
+    // GPS active?
     if (CheckLocation.isActiveGPS((LocationManager) view.getContext().getSystemService(LOCATION_SERVICE))) {
+      Log.d(TAG, "onResume: CheckLocation.isActiveGPS");
       notActiveGPS();
       return;
     }
 
+    // Is Marshmallow with permission
     if (!Devices.isMarshmallowPermissionCoarseFine()) {
       permissionFailed();
     }
@@ -121,12 +138,16 @@ public class MapPresenter implements MapContract.Presenter {
   @Override
   public void findPosition(Location mLastLocation, boolean from) {
     if (mLastLocation != null) {
+      // Get geocoder
       Geocoder geocoder = new Geocoder(context, Locale.getDefault());
       try {
+        // Select 1
         List<Address> list = geocoder.getFromLocation(mLastLocation.getLatitude(), mLastLocation.getLongitude(), 1);
+
         if (list != null && list.size() > 0) {
           Address address = list.get(0);
           if (address.getLocality() == null) {
+            // Found, call the Angels CA
             localitationNoAvailable(from);
           } else {
             if (from) {
@@ -137,22 +158,22 @@ public class MapPresenter implements MapContract.Presenter {
           }
         }
       } catch (IOException e) {
-        Log.e(TAG, "findPosition: " + e.getMessage());
+        // Found, call the Angels CA
         localitationNoAvailable(from);
       }
     } else {
-      Log.d(TAG, "findPosition: 2");
+      // Found, call the Angels CA
       localitationNoAvailable(from);
     }
   }
 
   @Override
   public void failGetPosition() {
+    // Found, call the Angels CA
     onProgress(CA);
   }
 
   private void onProgress(final String location) {
-    Log.d(TAG, "onProgress: ");
     repository.getLodgings(location, new LodgingsDataSource.LoadLodgingCallback() {
       @Override
       public void onLoaded(final Lodging lodgings) {
@@ -164,10 +185,10 @@ public class MapPresenter implements MapContract.Presenter {
         } else {
 
           localities = Mapper.getLocalityOfResult(lodgings.getResult());
-          if(localities == null){
+          if (localities == null) {
             view.showProgress(false);
             view.showNoModels(true);
-          }else{
+          } else {
             view.showProgress(false);
             view.showMap(true);
             view.showModels(localities);
@@ -214,7 +235,6 @@ public class MapPresenter implements MapContract.Presenter {
   }
 
   private void onIndicator(String location) {
-    Log.d(TAG, "onIndicator: ");
     repository.refleshLodgings(new LodgingsDataSource.LoadLodgingCallback() {
       @Override
       public void onLoaded(Lodging lodgings) {
@@ -253,6 +273,9 @@ public class MapPresenter implements MapContract.Presenter {
     });
   }
 
+  /**
+   * @param msg Message
+   */
   private void showMessage(String msg) {
     if (!view.isActive()) {
       return;

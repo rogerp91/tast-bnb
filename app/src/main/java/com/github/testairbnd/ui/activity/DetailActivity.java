@@ -32,12 +32,16 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
 
     if (savedInstanceState == null) {
       Bundle bundle = getIntent().getExtras();
+
+      // HomeFragment o FavoriteFragment show your favorite star or not
       BundleDetail bundleDetail = bundle.getParcelable("detail");
       boolean from = bundle.getBoolean("favorite");
       if (bundleDetail == null) {
         finish();
         return;
       }
+
+      // Go DetailFragment
       Usefulness.gotoFragment(new DataReplace(getSupportFragmentManager(),
         DetailFragment.newInstance(bundleDetail.getId(), from), R.id.main_content));
     }

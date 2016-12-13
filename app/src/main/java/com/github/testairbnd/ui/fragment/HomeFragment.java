@@ -125,6 +125,7 @@ public class HomeFragment extends BaseFragment implements
   @Override
   public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
+
     //Recycler
     recycler.setHasFixedSize(true);
     LinearLayoutManager linearManager = new LinearLayoutManager(getActivity());
@@ -145,11 +146,13 @@ public class HomeFragment extends BaseFragment implements
       }
     });
 
+    // Localization
     mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
       .addConnectionCallbacks(this)
       .addOnConnectionFailedListener(this)
       .addApi(LocationServices.API)
       .build();
+
     buildGoogleApiClient();
     createLocationRequest();
     buildLocationSettingsRequest();
@@ -162,16 +165,23 @@ public class HomeFragment extends BaseFragment implements
     try {
       adapte.clearData();
     } catch (NullPointerException e) {
-      Log.d(TAG, "onStart: " + e.getMessage());
+      Log.e(TAG, "onStart: " + e.getMessage());
     }
   }
 
   @Override
   public void onResume() {
     super.onResume();
+    // Show View Progress
     presenter.showViewProgress();
+
+    // Recycler, problem to load data
     recycler.setItemViewCacheSize(0);
+
+    // Check
     presenter.onResume();
+
+    // Intent from MainActivity
     IntentFilter filter = new IntentFilter();
     filter.addAction(INTENT_ACTION_PERMISSION_SUCCESS);
     filter.addAction(INTENT_ACTION_NOT_GPS_ACTIVE);
@@ -399,7 +409,9 @@ public class HomeFragment extends BaseFragment implements
     builder.addLocationRequest(mLocationRequest).setAlwaysShow(true);
   }
 
-
+  /**
+   * {@link LodgingsAdapte}
+   */
   public OnItemClickAddLodgings onClickAddFavorite = new OnItemClickAddLodgings() {
 
     @Override
@@ -417,13 +429,13 @@ public class HomeFragment extends BaseFragment implements
 
   @OnClick(R.id.text_try_again)
   void onClickTryAgain() {//Retry
-    presenter.showViewProgress();
+    presenter.showViewProgress();//Always view
     presenter.findPosition(mLastLocation, true);
   }
 
   @OnClick(R.id.text_try_again_gps)
   void onClickTryAgainGPS() { //Retry
-    presenter.showViewProgress();
+    presenter.showViewProgress();//Always view
     presenter.findPosition(mLastLocation, true);
   }
 
@@ -434,14 +446,12 @@ public class HomeFragment extends BaseFragment implements
 
   @OnClick(R.id.text_try_again_per)
   void onClickTryAgainPer() {//Retry
-    Log.d(TAG, "onClickTryAgainPer: ");
-    presenter.showViewProgress();
+    presenter.showViewProgress();//Always view
     presenter.findPosition(mLastLocation, true);
   }
 
   @OnClick(R.id.btn_required_permission)
   void onClickRequiredPer() {
-    Log.d(TAG, "onClickRequiredPer: ");
     final Intent i = new Intent();
     i.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
     i.addCategory(Intent.CATEGORY_DEFAULT);
@@ -453,14 +463,13 @@ public class HomeFragment extends BaseFragment implements
 
   @OnClick(R.id.text_try_again_loc)
   void onClickTryAgainLoc() {//Retry
-    Log.d(TAG, "onClickTryAgainLoc: ");
-    presenter.showViewProgress();
+    presenter.showViewProgress();//Always view
     presenter.findPosition(mLastLocation, true);
   }
 
   @OnClick(R.id.btn_required_loc)
   void onClickRequiredLoc() {
-    presenter.showViewProgress();
+    presenter.showViewProgress(); //Always view
     presenter.failGetPosition();
   }
 }

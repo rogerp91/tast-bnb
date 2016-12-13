@@ -13,7 +13,10 @@ import java.util.List;
  */
 
 public class Mapper {
-
+  /**
+   * @param results {@link Result}
+   * @return Locality
+   */
   public static List<Locality> getLocalityOfResult(List<Result> results) {
     List<Locality> localities = new ArrayList<>();
     if (results.isEmpty()) {

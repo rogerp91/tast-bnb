@@ -11,6 +11,9 @@ import javax.inject.Inject;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
+/**
+ * @see com.github.testairbnd.data.source.LodgingsDataSource
+ */
 public class LodgingsLocalDataSource implements LodgingsDataSource {
 
   private final static String TAG = LodgingsLocalDataSource.class.getSimpleName();

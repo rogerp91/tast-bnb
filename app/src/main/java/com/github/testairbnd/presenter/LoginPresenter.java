@@ -24,7 +24,6 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Inject
     public LoginPresenter() {
-
     }
 
     @Override

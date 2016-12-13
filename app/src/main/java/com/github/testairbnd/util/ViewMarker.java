@@ -13,6 +13,13 @@ import android.widget.LinearLayout;
 
 public class ViewMarker {
 
+  /**
+   * {@link android.support.v7.widget.CardView} Market for Map
+   *
+   * @param activity {@link android.content.Context}
+   * @param view     {@link View}
+   * @return Bitmap
+   */
   public static Bitmap createDrawableFromView(Activity activity, View view) {
     DisplayMetrics displayMetrics = new DisplayMetrics();
     activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);

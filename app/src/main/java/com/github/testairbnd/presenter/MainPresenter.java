@@ -17,39 +17,42 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 public class MainPresenter implements MainContact.Presenter {
 
-    private MainContact.View view;
+  private MainContact.View view;
 
-    @Inject
-    public MainPresenter() {
-    }
+  @Inject
+  public MainPresenter() {
+  }
 
-    @Override
-    public void setView(@NonNull MainContact.View view) {
-        checkNotNull(view, "View not null!");
-        this.view = view;
-    }
+  @Override
+  public void setView(@NonNull MainContact.View view) {
+    checkNotNull(view, "View not null!");
+    this.view = view;
+  }
 
-    @Override
-    public void onResume() {
-        LocationManager locationManager = (LocationManager) view.getContext().getSystemService(LOCATION_SERVICE);
-        if (Devices.isMarshmallow()) {
-            if (Devices.hasPermission(null, "android.permission.ACCESS_FINE_LOCATION") || Devices.hasPermission(null, "android.permission.ACCESS_COARSE_LOCATION")) {
-                if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && !locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
-                    view.showDialogGPS();
-                }
-            } else {
-                view.locationFail();
-            }
-        } else {
-            if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && !locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
-                view.showDialogGPS();
-            }
+  @Override
+  public void onResume() {
+    // is GPS?
+    LocationManager locationManager = (LocationManager) view.getContext().getSystemService(LOCATION_SERVICE);
+
+    // Permission?
+    if (Devices.isMarshmallow()) {
+      if (Devices.hasPermission(null, "android.permission.ACCESS_FINE_LOCATION") || Devices.hasPermission(null, "android.permission.ACCESS_COARSE_LOCATION")) {
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && !locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+          view.showDialogGPS();
         }
+      } else {
+        view.locationFail();
+      }
+    } else {
+      if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && !locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+        view.showDialogGPS();
+      }
     }
+  }
 
-    @Override
-    public void init() {
-        view.setToolbar();
-        view.setActionBarIcon();
-    }
+  @Override
+  public void init() {
+    view.setToolbar();
+    view.setActionBarIcon();
+  }
 }

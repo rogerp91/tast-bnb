@@ -8,7 +8,11 @@ import android.location.LocationManager;
 
 public class CheckLocation {
 
-
+  /**
+   *
+   * @param locationManager {@link LocationManager}
+   * @return boolean
+	 */
     public static boolean isActiveGPS(LocationManager locationManager) {
         return !locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && !locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
     }

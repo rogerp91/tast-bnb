@@ -8,6 +8,11 @@ import android.support.annotation.NonNull;
 
 public interface ItemDetailContract {
 
+  /**
+   * TODO: View
+   * <p>
+   * {@link com.github.testairbnd.ui.fragment.DetailFragment}
+   */
   public interface View {
 
     void setTitle();
@@ -59,6 +64,10 @@ public interface ItemDetailContract {
     void showMessage(String message);
   }
 
+  /**
+   * TODO: Presenter
+   * {@link com.github.testairbnd.presenter.ItemDetailPresenter}
+   */
   public interface Presenter {
 
     void setView(@NonNull ItemDetailContract.View view);

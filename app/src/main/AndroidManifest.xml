@@ -54,9 +54,6 @@
       android:name=".ui.activity.DetailActivity"
       android:noHistory="true"
       android:theme="@style/AppTheme.NoActionBar"/>
-    <activity
-      android:name=".ui.fragment.MapsActivity"
-      android:label="@string/title_activity_maps"/>
 
     <service
       android:name=".service.GeofenceService"
