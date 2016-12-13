@@ -3,8 +3,7 @@ package com.github.testairbnd.util;
 public class Constants {
 
   public static final String SESSION = "session";
-  public static final String FACEBOOK_FIRST = "first_facebook";
-  public static final String FACEBOOK_LAST = "last_facebook";
+  public static final String FACEBOOK_NAME = "name_facebook";
   public static final String FACEBOOK_ID = "facebook_id";
 
   public static final String NO_DIALOG_SHOW = "NO_DIALOG_SHOW";

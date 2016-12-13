@@ -44,7 +44,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
@@ -69,7 +68,6 @@ import static com.github.testairbnd.util.Constants.UPDATE_INTERVAL;
  */
 
 public class MapFragment extends BaseFragment implements MapContract.View,
-  GoogleMap.OnMarkerClickListener,
   OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,
   GoogleApiClient.OnConnectionFailedListener {
 
@@ -139,8 +137,6 @@ public class MapFragment extends BaseFragment implements MapContract.View,
       mapFragment = SupportMapFragment.newInstance();
       fragmentTransaction.replace(map, mapFragment).commit();
     }
-    mMap.setOnMarkerClickListener(this);
-
     // Localitation
     mGoogleApiClient = new GoogleApiClient.Builder(getActivity()).addConnectionCallbacks(this)
       .addOnConnectionFailedListener(this)
@@ -473,8 +469,4 @@ public class MapFragment extends BaseFragment implements MapContract.View,
     presenter.failGetPosition();
   }
 
-  @Override
-  public boolean onMarkerClick(Marker marker) {
-    return false;
-  }
 }

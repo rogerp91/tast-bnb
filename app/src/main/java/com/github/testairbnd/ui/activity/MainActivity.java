@@ -20,10 +20,12 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.github.rogerp91.pref.SP;
 import com.github.testairbnd.R;
 import com.github.testairbnd.contract.MainContact;
+import com.github.testairbnd.data.model.DataIntent;
 import com.github.testairbnd.data.model.DataReplace;
 import com.github.testairbnd.ui.fragment.FavoriteFragment;
 import com.github.testairbnd.ui.fragment.HomeFragment;
 import com.github.testairbnd.ui.fragment.MapFragment;
+import com.github.testairbnd.util.AccessTokenFacebook;
 import com.github.testairbnd.util.Devices;
 import com.github.testairbnd.util.ProfileView;
 import com.github.testairbnd.util.Usefulness;
@@ -37,9 +39,8 @@ import kr.co.namee.permissiongen.PermissionFail;
 import kr.co.namee.permissiongen.PermissionGen;
 import kr.co.namee.permissiongen.PermissionSuccess;
 
-import static com.github.testairbnd.util.Constants.FACEBOOK_FIRST;
 import static com.github.testairbnd.util.Constants.FACEBOOK_ID;
-import static com.github.testairbnd.util.Constants.FACEBOOK_LAST;
+import static com.github.testairbnd.util.Constants.FACEBOOK_NAME;
 import static com.github.testairbnd.util.Constants.INTENT_ACTION_NOT_GPS_ACTIVE;
 import static com.github.testairbnd.util.Constants.INTENT_ACTION_PERMISSION_FAILED;
 import static com.github.testairbnd.util.Constants.INTENT_ACTION_PERMISSION_SUCCESS;
@@ -63,11 +64,9 @@ public class MainActivity extends BaseActivity implements MainContact.View {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-
-//        if (!SP.getBoolean(SESSION, false)) {
-//            SP.putBoolean(SESSION, false);
-//            Usefulness.gotoActivity(new DataIntent(this, LoginActivity.class, true));
-//        }
+    if (!AccessTokenFacebook.isLoggedIn()) {
+      Usefulness.gotoActivity(new DataIntent(this, LoginActivity.class, true));
+    }
 
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
@@ -183,18 +182,12 @@ public class MainActivity extends BaseActivity implements MainContact.View {
    * @param profile @{@link ProfileView}
    */
   private void showProfile(ProfileView profile) {
-    String first = SP.getString(FACEBOOK_FIRST, "");
-    String last = SP.getString(FACEBOOK_LAST, "");
-    int id = SP.getInt(FACEBOOK_ID, 0);
-
-    if (first.trim().length() == 0) {
-      first = "Undefined";
+    String name = SP.getString(FACEBOOK_NAME, "");
+    String id = SP.getString(FACEBOOK_ID, "");
+    if (name.trim().length() == 0) {
+      name = "Undefined";
     }
-    if (last.trim().length() == 0) {
-      last = "Undefined";
-    }
-
-    profile.getNames().setText(first + " " + last);
+    profile.getNames().setText(name);
     String url = "https://graph.facebook.com/" + id + "/picture?type=large";
     Log.d(TAG, "profileURL:" + url);
     Picasso.with(this).load(url).noFade().placeholder(R.drawable.logo_airbnb).error(R.drawable.logo_airbnb).into(profile.getCircleImageView());

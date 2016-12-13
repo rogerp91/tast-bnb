@@ -7,7 +7,6 @@ import dagger.Module;
 
 @Module(
         injects = {
-//                LoginActivity.class
                 MainActivity.class,
                 DetailActivity.class
 
