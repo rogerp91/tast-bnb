@@ -71,6 +71,12 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
+
+    @Override
     public void goSuccess() {
         DataIntent dataIntent = new DataIntent();
         dataIntent.setActivity(getActivity());
