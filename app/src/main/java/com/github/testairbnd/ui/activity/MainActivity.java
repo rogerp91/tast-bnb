@@ -3,6 +3,7 @@ package com.github.testairbnd.ui.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -30,6 +31,8 @@ import com.github.testairbnd.util.Devices;
 import com.github.testairbnd.util.ProfileView;
 import com.github.testairbnd.util.Usefulness;
 import com.squareup.picasso.Picasso;
+
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
@@ -171,8 +174,8 @@ public class MainActivity extends BaseActivity implements MainContact.View {
         findProfile.setCircleImageView((CircleImageView) headerNav.findViewById(R.id.circle_image));
         showProfile(findProfile);
         if (savedInstanceState == null) {
-            selectItem(navigationView.getMenu().getItem(0));
-            Usefulness.gotoFragment(new DataReplace(getSupportFragmentManager(), HomeFragment.newInstance(), R.id.main_content));
+            selectItem(R.id.nav_home);
+//            Usefulness.gotoFragment(new DataReplace(getSupportFragmentManager(), HomeFragment.newInstance(), R.id.main_content));
         }
     }
 
@@ -203,13 +206,17 @@ public class MainActivity extends BaseActivity implements MainContact.View {
                 new NavigationView.OnNavigationItemSelectedListener() {
 
                     @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                    public boolean onNavigationItemSelected(@NonNull final MenuItem menuItem) {
                         drawerLayout.closeDrawers();
                         menuItem.setChecked(true);
-                        drawerLayout.closeDrawers();
-                        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                            selectItem(menuItem);
-                        }
+                        // fix: Problem load fragment
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                selectItem(menuItem.getItemId());
+                            }
+                        }, 300);
+
                         return true;
                     }
                 }
@@ -221,8 +228,8 @@ public class MainActivity extends BaseActivity implements MainContact.View {
      *
      * @param itemDrawer @{@link MenuItem}i5
      */
-    private void selectItem(MenuItem itemDrawer) {
-        switch (itemDrawer.getItemId()) {
+    private void selectItem(int itemDrawer) {
+        switch (itemDrawer) {
             case R.id.nav_home:
                 setTitle("Home");
                 Usefulness.gotoFragment(new DataReplace(getSupportFragmentManager(), HomeFragment.newInstance(), R.id.main_content));
