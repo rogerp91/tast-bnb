@@ -6,7 +6,7 @@
     tools:context="com.github.testairbnb.ui.fragment.LoginFragment">
 
     <com.facebook.login.widget.LoginButton
-        android:visibility="visible"
+        android:visibility="gone"
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             android:layout_marginTop="16dp"
             android:gravity="center"
             android:textSize="16sp"
-            tools:text="Google Play Services required to use the app" />
+            android:text="Google Play Services required to use the app" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/text_try_again_play"
@@ -54,7 +54,6 @@
             android:text="Download"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="18sp" />
-
 
     </RelativeLayout>
 
