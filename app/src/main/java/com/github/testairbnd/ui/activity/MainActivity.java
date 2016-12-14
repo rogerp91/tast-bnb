@@ -32,8 +32,6 @@ import com.github.testairbnd.util.ProfileView;
 import com.github.testairbnd.util.Usefulness;
 import com.squareup.picasso.Picasso;
 
-import java.util.concurrent.TimeUnit;
-
 import javax.inject.Inject;
 
 import butterknife.BindView;

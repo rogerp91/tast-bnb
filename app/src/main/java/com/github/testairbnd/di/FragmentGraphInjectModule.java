@@ -13,11 +13,11 @@ import dagger.Module;
  * Created by Roger Patiño on 22/12/2015.
  */
 @Module(injects = {
-  LoginFragment.class,
-  HomeFragment.class,
-  FavoriteFragment.class,
-  MapFragment.class,
-  DetailFragment.class
+        LoginFragment.class,
+        HomeFragment.class,
+        FavoriteFragment.class,
+        MapFragment.class,
+        DetailFragment.class
 }, complete = false, library = true)
 public class FragmentGraphInjectModule {
 }

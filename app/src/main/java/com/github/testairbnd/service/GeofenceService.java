@@ -47,11 +47,6 @@ public class GeofenceService extends BaseService implements GoogleApiClient.Conn
 
     protected static String TAG = GeofenceService.class.getSimpleName();
 
-    /**
-     * {@link LodgingsRepository}
-     */
-    private LodgingsDataSource repository;
-
     protected GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
     protected LocationManager locationManager;
@@ -260,7 +255,7 @@ public class GeofenceService extends BaseService implements GoogleApiClient.Conn
             super.run();
             LodgingsDataSource local = new LodgingsLocalDataSource();
             LodgingsDataSource remote = new LodgingsRemoteDataSource();
-            repository = new LodgingsRepository(local, remote);
+            LodgingsDataSource repository = new LodgingsRepository(local, remote);
             repository.getLodgingsFavorite(new LodgingsDataSource.GetLodgingFavoriteCallback() {
                 @Override
                 public void onLoaded(List<ListingDetail> listingDetails) {
