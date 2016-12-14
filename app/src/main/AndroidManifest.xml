@@ -71,9 +71,6 @@
             android:enabled="true"
             android:process=":geofence" />
 
-        <activity
-            android:name=".ui.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
     </application>
 
 </manifest>

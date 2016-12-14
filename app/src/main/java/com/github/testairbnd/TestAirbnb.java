@@ -14,6 +14,10 @@ import com.facebook.appevents.AppEventsLogger;
 import com.github.rogerp91.pref.SP;
 import com.github.testairbnd.di.AppModules;
 
+import org.acra.ACRA;
+import org.acra.ReportingInteractionMode;
+import org.acra.annotation.ReportsCrashes;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
@@ -25,7 +29,11 @@ import io.realm.RealmConfiguration;
 /**
  * Created by rogerp91 on 05/12/16.
  */
-
+@ReportsCrashes(
+        formUri = "https://collector.tracepot.com/df10d880",
+        mode = ReportingInteractionMode.TOAST,
+        resToastText = R.string.error_many
+)
 public class TestAirbnb extends Application {
 
   private final static String TAG = TestAirbnb.class.getSimpleName();
@@ -53,6 +61,7 @@ public class TestAirbnb extends Application {
   @Override
   public void onCreate() {
     super.onCreate();
+    ACRA.init(this);
     instance = this;
 
     //Preference Shared

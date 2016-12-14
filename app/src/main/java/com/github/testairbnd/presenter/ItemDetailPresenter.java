@@ -65,11 +65,13 @@ public class ItemDetailPresenter implements ItemDetailContract.Presenter {
           view.showNoModels(true);
           return;
         }
-        Log.d("LOAD", "onLoaded: ");
-        ld = detail.getListing();
-        view.setName(ld.getName());
 
-        Log.d("LOAD", "onLoaded: " + ld.getName());
+
+        Log.d("LOAD", "onLoaded: ");
+
+        ld = detail.getListing();
+        view.setMap(ld.getLat(), ld.getLng());
+        view.setName(ld.getName());
         view.setBackground(ld.getPicture_url());
         view.setPropertyType(ld.getProperty_type());
         view.setRoomType(ld.getRoom_type());
@@ -78,7 +80,7 @@ public class ItemDetailPresenter implements ItemDetailContract.Presenter {
         view.setCountBest(Integer.toString(ld.getBedrooms()));
         view.setCountBath(Double.toString(ld.getBathrooms()));
         view.setDescription(ld.getDescription());
-        view.setMap(ld.getLat(), ld.getLng());
+
         view.setPlace(ld.getAddress());
         view.showContainerView(true);
         view.showBarLayout(true);

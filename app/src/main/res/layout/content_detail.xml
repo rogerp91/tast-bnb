@@ -1,279 +1,275 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  app:layout_behavior="@string/appbar_scrolling_view_behavior"
-  tools:showIn="@layout/fragment_detail">
-
-  <android.support.v7.widget.CardView
-    android:id="@+id/card_container"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:visibility="gone">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/fragment_detail">
 
-    <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:orientation="vertical"
-      android:paddingBottom="8dp"
-      android:paddingLeft="@dimen/activity_horizontal_margin"
-      android:paddingRight="@dimen/activity_horizontal_margin"
-      android:paddingTop="24dp">
-
-      <RelativeLayout
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
 
-        <TextView
-          android:id="@+id/name"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignParentLeft="true"
-          android:ellipsize="end"
-          android:lines="1"
-          android:textColor="@android:color/black"
-          android:textSize="18sp" />
-
-        <TextView
-          android:id="@+id/property_type"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignParentLeft="true"
-          android:layout_marginTop="25dp"
-          android:ellipsize="end"
-          android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-          android:textColor="@color/secondary_text" />
-
-        <TextView
-          android:id="@+id/room_type"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignParentLeft="true"
-          android:layout_marginTop="45dp"
-          android:ellipsize="end"
-          android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-          android:textColor="@color/secondary_text" />
-      </RelativeLayout>
-
-      <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:background="@android:color/transparent"
-        android:baselineAligned="false"
-        android:orientation="horizontal">
-
-        <!-- TODO: 1-->
         <LinearLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center_vertical"
-          android:layout_weight="1"
-          android:background="@android:color/transparent"
-          android:gravity="center"
-          android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="24dp">
 
-          <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:gravity="center"
-            android:text="Guests"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="@android:color/black"
-            tools:ignore="RelativeOverlap" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-          <android.support.v4.widget.Space
-            android:layout_width="wrap_content"
-            android:layout_height="8dp" />
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
 
-          <TextView
-            android:id="@+id/count_guest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textColor="@android:color/black"
-            tools:ignore="RelativeOverlap" />
+                <TextView
+                    android:id="@+id/property_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="25dp"
+                    android:ellipsize="end"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textColor="@color/secondary_text" />
 
+                <TextView
+                    android:id="@+id/room_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="45dp"
+                    android:ellipsize="end"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textColor="@color/secondary_text" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@android:color/transparent"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <!-- TODO: 1-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:text="Guests"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                        android:textColor="@android:color/black"
+                        tools:ignore="RelativeOverlap" />
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="8dp" />
+
+                    <TextView
+                        android:id="@+id/count_guest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        android:textColor="@android:color/black"
+                        tools:ignore="RelativeOverlap" />
+
+                </LinearLayout>
+
+                <!-- TODO: 2-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:text="Bedrooms"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                        android:textColor="@android:color/black"
+                        tools:ignore="RelativeOverlap" />
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="8dp" />
+
+                    <TextView
+                        android:id="@+id/count_bed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        android:textColor="@android:color/black"
+                        tools:ignore="RelativeOverlap" />
+
+                </LinearLayout>
+
+                <!-- TODO: 3-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:text="Best"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                        android:textColor="@android:color/black"
+                        tools:ignore="RelativeOverlap" />
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="8dp" />
+
+                    <TextView
+                        android:id="@+id/count_best"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        android:textColor="@android:color/black"
+                        tools:ignore="RelativeOverlap" />
+
+                </LinearLayout>
+
+                <!-- TODO: 4 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:text="Bathrooms"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                        android:textColor="@android:color/black"
+                        tools:ignore="RelativeOverlap" />
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="8dp" />
+
+                    <TextView
+                        android:id="@+id/count_bath"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        android:textColor="@android:color/black"
+                        tools:ignore="RelativeOverlap" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@android:color/transparent"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/secondary_text"
+                    tools:ignore="RelativeOverlap" />
+
+            </LinearLayout>
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="25dp"
+                android:apiKey="@string/google_maps_key" />
+
+            <!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:id="@+id/map"-->
+            <!--class="com.google.android.gms.maps.SupportMapFragment"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="150dp"-->
+            <!--android:layout_marginTop="25dp" />-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@android:color/transparent"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/place"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textColor="@color/secondary_text"
+                    tools:ignore="RelativeOverlap" />
+
+            </LinearLayout>
         </LinearLayout>
 
-        <!-- TODO: 2-->
-        <LinearLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:background="@android:color/transparent"
-          android:gravity="center"
-          android:orientation="vertical">
-
-          <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:gravity="center"
-            android:text="Bedrooms"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="@android:color/black"
-            tools:ignore="RelativeOverlap" />
-
-          <android.support.v4.widget.Space
-            android:layout_width="wrap_content"
-            android:layout_height="8dp" />
-
-          <TextView
-            android:id="@+id/count_bed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textColor="@android:color/black"
-            tools:ignore="RelativeOverlap" />
-
-        </LinearLayout>
-
-        <!-- TODO: 3-->
-        <LinearLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:background="@android:color/transparent"
-          android:gravity="center"
-          android:orientation="vertical">
-
-          <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:gravity="center"
-            android:text="Best"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="@android:color/black"
-            tools:ignore="RelativeOverlap" />
-
-          <android.support.v4.widget.Space
-            android:layout_width="wrap_content"
-            android:layout_height="8dp" />
-
-          <TextView
-            android:id="@+id/count_best"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textColor="@android:color/black"
-            tools:ignore="RelativeOverlap" />
-
-        </LinearLayout>
-
-        <!-- TODO: 4 -->
-        <LinearLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:background="@android:color/transparent"
-          android:gravity="center"
-          android:orientation="vertical">
-
-          <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:gravity="center"
-            android:text="Bathrooms"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="@android:color/black"
-            tools:ignore="RelativeOverlap" />
-
-          <android.support.v4.widget.Space
-            android:layout_width="wrap_content"
-            android:layout_height="8dp" />
-
-          <TextView
-            android:id="@+id/count_bath"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textColor="@android:color/black"
-            tools:ignore="RelativeOverlap" />
-
-        </LinearLayout>
-
-      </LinearLayout>
-
-      <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:background="@android:color/transparent"
-        android:baselineAligned="false"
-        android:orientation="horizontal">
-
-        <TextView
-          android:id="@+id/description"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_centerVertical="true"
-          android:ellipsize="end"
-          android:gravity="center"
-          android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-          android:textColor="@color/secondary_text"
-          tools:ignore="RelativeOverlap" />
-
-      </LinearLayout>
-
-      <!--<com.google.android.gms.maps.MapView-->
-      <!--android:layout_marginTop="25dp"-->
-      <!--android:id="@+id/map"-->
-      <!--android:name="com.google.android.gms.maps.MapFragment"-->
-      <!--android:layout_width="fill_parent"-->
-      <!--android:layout_height="120dp"-->
-      <!--android:apiKey="@string/google_maps_key"-->
-      <!--android:enabled="true"-->
-      <!--android:fadeScrollbars="false"-->
-      <!--android:scrollbars="none"-->
-      <!--android:visibility="visible" />-->
-      <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/map"
-        class="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="25dp" />
-
-      <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:background="@android:color/transparent"
-        android:baselineAligned="false"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <TextView
-          android:id="@+id/place"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:ellipsize="end"
-          android:gravity="center"
-          android:lines="1"
-          android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-          android:textColor="@color/secondary_text"
-          tools:ignore="RelativeOverlap" />
-
-      </LinearLayout>
-    </LinearLayout>
-
-  </android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>
 </android.support.v4.widget.NestedScrollView>
