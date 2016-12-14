@@ -34,7 +34,7 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void onResume() {
         if (!PlayServices.isGooglePlayServicesAvailable(view.getContext())) {
-            view.showButtonFacebook(true);
+            view.showErrorNotPlayServices(true);
         } else {
             view.showButtonFacebook(true);
         }
