@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.github.testairbnd.TestAirbnb;
 import com.github.testairbnd.di.FragmentModule;
+import com.github.testairbnd.util.PlayServices;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,38 +23,43 @@ import dagger.ObjectGraph;
 
 public abstract class BaseFragment extends Fragment {
 
-  protected void injectView(View view) {
-    ButterKnife.bind(this, view);
-  }
+    protected void injectView(View view) {
+        ButterKnife.bind(this, view);
+    }
 
-  private ObjectGraph activityGraph;
+    private ObjectGraph activityGraph;
 
-  public ActionBar ab;
+    public ActionBar ab;
 
-  @Override
-  public void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
-    ab = appCompatActivity.getSupportActionBar();
-    injectDependencies();
-  }
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
+        ab = appCompatActivity.getSupportActionBar();
+        injectDependencies();
+    }
 
-  private void injectDependencies() {
-    TestAirbnb app = (TestAirbnb) getActivity().getApplication();
-    List<Object> activityScopeModules = new ArrayList<>();
-    activityScopeModules.add(new FragmentModule(getActivity()));
-    activityGraph = app.buildGraphWithAditionalModules(activityScopeModules);
-    inject(this);
-  }
+    private void injectDependencies() {
+        TestAirbnb app = (TestAirbnb) getActivity().getApplication();
+        List<Object> activityScopeModules = new ArrayList<>();
+        activityScopeModules.add(new FragmentModule(getActivity()));
+        activityGraph = app.buildGraphWithAditionalModules(activityScopeModules);
+        inject(this);
+    }
 
-  private void inject(Object entityToGetInjected) {
-    activityGraph.inject(entityToGetInjected);
-  }
+    private void inject(Object entityToGetInjected) {
+        activityGraph.inject(entityToGetInjected);
+    }
 
-  @Override
-  public void onDestroy() {
-    super.onDestroy();
-    activityGraph = null;
-  }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        activityGraph = null;
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        PlayServices.isGooglePlayServicesAvailable(getActivity().getApplicationContext(), getActivity(), getView());
+    }
 }
