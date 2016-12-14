@@ -1,5 +1,6 @@
 package com.github.testairbnd.contract;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 
 /**
@@ -8,38 +9,46 @@ import android.support.annotation.NonNull;
 
 public interface LoginContract {
 
-  /**
-   * TODO: View
-   * <p>
-   * {@link com.github.testairbnd.ui.fragment.LoginFragment}
-   */
-  public interface View {
+    /**
+     * TODO: View
+     * <p>
+     * {@link com.github.testairbnd.ui.fragment.LoginFragment}
+     */
+    public interface View {
 
-    void goSuccess();
+        void goSuccess();
 
-    void showCancelLogin();
+        void showCancelLogin();
 
-    void showError(String error);
+        void showError(String error);
 
-    boolean isActive();
+        boolean isActive();
 
-  }
+        void showErrorNotPlayServices(final boolean active);
+
+        void showButtonFacebook(final boolean active);
+
+        Context getContext();
+
+    }
 
 
-  /**
-   * TODO: Presenter
-   * {@link com.github.testairbnd.presenter.LoginPresenter}
-   */
-  public interface Presenter {
+    /**
+     * TODO: Presenter
+     * {@link com.github.testairbnd.presenter.LoginPresenter}
+     */
+    public interface Presenter {
 
-    void setView(@NonNull View view);
+        void setView(@NonNull View view);
 
-    void onSuccess(com.github.testairbnd.data.model.Profile profile);
+        void onResume();
 
-    void onError(String error);
+        void onSuccess(com.github.testairbnd.data.model.Profile profile);
 
-    void onCancel();
+        void onError(String error);
 
-  }
+        void onCancel();
+
+    }
 
 }

@@ -64,6 +64,7 @@ public abstract class BaseFragment extends Fragment {
         super.onResume();
         if (!PlayServices.isGooglePlayServicesAvailable(getActivity().getApplicationContext())) {
             Usefulness.showMessage(getView(), "Google Play Services required to use the app", Snackbar.LENGTH_LONG);
+            return;
         }
     }
 }

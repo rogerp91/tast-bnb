@@ -6,6 +6,7 @@
     tools:context="com.github.testairbnb.ui.fragment.LoginFragment">
 
     <com.facebook.login.widget.LoginButton
+        android:visibility="visible"
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,5 +24,38 @@
         android:layout_marginTop="19dp"
         app:srcCompat="@drawable/logo_airbnb"
         tools:ignore="ContentDescription" />
+
+    <!-- Play Services -->
+    <RelativeLayout
+        android:layout_marginTop="60dp"
+        android:id="@+id/layout_message_play"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/text_message_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            tools:text="Google Play Services required to use the app" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/text_try_again_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_message_play"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Download"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="18sp" />
+
+
+    </RelativeLayout>
 
 </RelativeLayout>

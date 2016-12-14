@@ -13,77 +13,77 @@ import com.github.testairbnd.data.model.Result;
 
 public interface HomeContract {
 
-  /**
-   * TODO: View
-   * <p>
-   * {@link com.github.testairbnd.ui.fragment.HomeFragment}
-   */
-  public interface View {
+    /**
+     * TODO: View
+     * <p>
+     * {@link com.github.testairbnd.ui.fragment.HomeFragment}
+     */
+    public interface View {
 
-    void setTitle();
+        void setTitle();
 
-    void showProgress(boolean active);
+        void showProgress(boolean active);
 
-    void setLoadingIndicator(boolean active);
+        void setLoadingIndicator(boolean active);
 
-    void showModels(Lodging lodging);
+        void showModels(Lodging lodging);
 
-    void showNoModels(final boolean active);
+        void showNoModels(final boolean active);
 
-    void showNetworkError(final boolean active);
+        void showNetworkError(final boolean active);
 
-    void showErrorOcurred(final boolean active);
+        void showErrorOcurred(final boolean active);
 
-    void showErrorNotSolve(final boolean active);
+        void showErrorNotSolve(final boolean active);
 
-    void showMessage(String message);
+        void showMessage(String message);
 
-    boolean isActive();
+        boolean isActive();
 
-    void showActiveGPS(boolean active);
+        void showActiveGPS(boolean active);
 
-    void showPermission(boolean active);
+        void showPermission(boolean active);
 
-    void showNoLocalitation(boolean active);
+        void showNoLocalitation(boolean active);
 
-    Context getContext();
+        Context getContext();
 
-  }
+    }
 
-  /**
-   * TODO: Presenter
-   * {@link com.github.testairbnd.presenter.HomePresenter}
-   */
-  public interface Presenter {
+    /**
+     * TODO: Presenter
+     * {@link com.github.testairbnd.presenter.HomePresenter}
+     */
+    public interface Presenter {
 
-    void setView(@NonNull HomeContract.View view);
+        void setView(@NonNull HomeContract.View view);
 
-    void onResume();
+        void onResume();
 
-    void showViewProgress();
+        void showViewProgress();
 
-    void notShowView();
+        void notShowView();
 
-    void notActiveGPS();
+        void notActiveGPS();
 
-    void permissionFailed();
+        void permissionFailed();
 
-    void localitationNoAvailable(boolean from);
+        void localitationNoAvailable(boolean from);
 
-    void loadModels(boolean showLoadingUI);
+        void loadModels(boolean showLoadingUI);
 
-    void deleteAllModels();
+        void deleteAllModels();
 
-    boolean gpsEnabled();
+        boolean gpsEnabled();
 
-    void findPosition(Location mLastLocation, boolean from);
+        void findPosition(Location mLastLocation, boolean from);
 
-    void failGetPosition();
+        void failGetPosition();
 
-    void addFavorite(Result result);
+        void addFavorite(Result result);
 
-    void removeFavorite(int id);
+        void removeFavorite(int id);
 
-  }
+    }
 
 }
