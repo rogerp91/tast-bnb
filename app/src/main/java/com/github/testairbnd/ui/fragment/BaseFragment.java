@@ -2,6 +2,7 @@ package com.github.testairbnd.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.view.View;
 import com.github.testairbnd.TestAirbnb;
 import com.github.testairbnd.di.FragmentModule;
 import com.github.testairbnd.util.PlayServices;
+import com.github.testairbnd.util.Usefulness;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +62,8 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        PlayServices.isGooglePlayServicesAvailable(getActivity().getApplicationContext(), getActivity(), getView());
+        if (!PlayServices.isGooglePlayServicesAvailable(getActivity().getApplicationContext())) {
+            Usefulness.showMessage(getView(), "Google Play Services required to use the app", Snackbar.LENGTH_LONG);
+        }
     }
 }
