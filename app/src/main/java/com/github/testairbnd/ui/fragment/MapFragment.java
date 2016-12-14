@@ -29,6 +29,7 @@ import com.github.roger91.mlprogress.MlProgress;
 import com.github.testairbnd.R;
 import com.github.testairbnd.contract.MapContract;
 import com.github.testairbnd.data.model.Locality;
+import com.github.testairbnd.util.PlayServices;
 import com.github.testairbnd.util.Usefulness;
 import com.github.testairbnd.util.ViewMarker;
 import com.google.android.gms.common.ConnectionResult;
@@ -166,6 +167,11 @@ public class MapFragment extends BaseFragment implements MapContract.View,
     @Override
     public void onResume() {
         super.onResume();
+        if (!PlayServices.isGooglePlayServicesAvailable(getActivity().getApplicationContext())) {
+            Usefulness.showMessage(getView(), "Google Play Services required to use the app", Snackbar.LENGTH_LONG);
+            getActivity().finish();
+            return;
+        }
         presenter.showViewProgress();
         presenter.onResume();
         IntentFilter filter = new IntentFilter();

@@ -22,6 +22,7 @@ import com.github.testairbnd.data.model.ListingDetail;
 import com.github.testairbnd.ui.activity.DetailActivity;
 import com.github.testairbnd.ui.adapte.FavoriteLodgingsAdapte;
 import com.github.testairbnd.util.OnItemClickAddLodgings;
+import com.github.testairbnd.util.PlayServices;
 import com.github.testairbnd.util.Usefulness;
 
 import java.util.List;
@@ -78,6 +79,11 @@ public class FavoriteFragment extends BaseFragment implements FavoriteContract.V
     @Override
     public void onResume() {
         super.onResume();
+        if (!PlayServices.isGooglePlayServicesAvailable(getActivity().getApplicationContext())) {
+            Usefulness.showMessage(getView(), "Google Play Services required to use the app", Snackbar.LENGTH_LONG);
+            getActivity().finish();
+            return;
+        }
         presenter.start();
     }
 

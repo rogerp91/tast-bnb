@@ -36,6 +36,7 @@ import com.github.testairbnd.data.model.Lodging;
 import com.github.testairbnd.ui.activity.DetailActivity;
 import com.github.testairbnd.ui.adapte.LodgingsAdapte;
 import com.github.testairbnd.util.OnItemClickAddLodgings;
+import com.github.testairbnd.util.PlayServices;
 import com.github.testairbnd.util.Usefulness;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -176,6 +177,11 @@ public class HomeFragment extends BaseFragment implements
     @Override
     public void onResume() {
         super.onResume();
+        if (!PlayServices.isGooglePlayServicesAvailable(getActivity().getApplicationContext())) {
+            Usefulness.showMessage(getView(), "Google Play Services required to use the app", Snackbar.LENGTH_LONG);
+            getActivity().finish();
+            return;
+        }
         // Show View Progress
         presenter.showViewProgress();
 

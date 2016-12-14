@@ -26,6 +26,7 @@ import android.widget.ToggleButton;
 import com.github.roger91.mlprogress.MlProgress;
 import com.github.testairbnd.R;
 import com.github.testairbnd.contract.ItemDetailContract;
+import com.github.testairbnd.util.PlayServices;
 import com.github.testairbnd.util.Usefulness;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -173,6 +174,11 @@ public class DetailFragment extends BaseFragment implements ItemDetailContract.V
 
     @Override
     public void onResume() {
+        if (!PlayServices.isGooglePlayServicesAvailable(getActivity().getApplicationContext())) {
+            Usefulness.showMessage(getView(), "Google Play Services required to use the app", Snackbar.LENGTH_LONG);
+            getActivity().finish();
+            return;
+        }
         mapView.onResume();
         super.onResume();
     }
