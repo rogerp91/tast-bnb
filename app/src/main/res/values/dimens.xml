@@ -6,6 +6,12 @@
     <dimen name="header_left_padding">16dp</dimen>
     <dimen name="header_height">192dp</dimen>
     <dimen name="profile_image_size">74dp</dimen>
-
+    <dimen name="padding_bottom_sub">8dp</dimen>
+    <dimen name="padding_top_sub">24dp</dimen>
+    <dimen name="margin_bottom_btn_facebook">25dp</dimen>
+    <dimen name="margin_top_login_login">19dp</dimen>
+    <dimen name="img_height_logo">180dp</dimen>
+    <dimen name="margin_top_btn_facebook">45dp</dimen>
+    <dimen name="margin_top_text_play_service">6dp</dimen>
 
 </resources>

@@ -1,114 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:card_view="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:id="@+id/container_card"
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content"
-  android:layout_marginBottom="8dp"
-  card_view:cardCornerRadius="@dimen/cardview_default_radius"
-  card_view:cardElevation="@dimen/cardview_default_elevation"
-  card_view:cardUseCompatPadding="true">
-
-  <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="152dp"
-    android:background="@android:color/white">
-
-    <ImageView
-      android:id="@+id/img_backgroud"
-      android:layout_width="match_parent"
-      android:layout_height="152dp"
-      android:contentDescription="@string/app_name"
-      android:scaleType="centerCrop"
-      android:src="@drawable/ex_airbnd" />
-
-    <android.support.v7.widget.CardView
-      android:layout_width="85dp"
-      android:layout_height="37dp"
-      android:layout_alignParentBottom="true"
-      android:layout_alignParentLeft="true"
-      android:layout_alignParentStart="true"
-      android:layout_marginBottom="5dp"
-      android:layout_marginLeft="16dp"
-      card_view:cardCornerRadius="@dimen/cardview_default_radius"
-      card_view:cardElevation="@dimen/cardview_default_elevation"
-      card_view:cardUseCompatPadding="true"
-      card_view:contentPadding="5dp">
-
-      <TextView
-        android:id="@+id/price"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:lines="1"
-        android:text="150 $"
-        android:textColor="@color/colorAccent"
-        android:textSize="16sp" />
-
-    </android.support.v7.widget.CardView>
-
-  </RelativeLayout>
-
-  <LinearLayout
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="140dp"
-    android:orientation="vertical"
-    android:paddingBottom="8dp"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="24dp">
+    android:layout_marginBottom="8dp"
+    card_view:cardCornerRadius="@dimen/cardview_default_radius"
+    card_view:cardElevation="@dimen/cardview_default_elevation"
+    card_view:cardUseCompatPadding="true">
 
     <RelativeLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="152dp"
+        android:background="@android:color/white">
 
-      <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:ellipsize="end"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        tools:text="Name" />
+        <ImageView
+            android:id="@+id/img_backgroud"
+            android:layout_width="match_parent"
+            android:layout_height="152dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ex_airbnd" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="85dp"
+            android:layout_height="37dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="16dp"
+            card_view:cardCornerRadius="@dimen/cardview_default_radius"
+            card_view:cardElevation="@dimen/cardview_default_elevation"
+            card_view:cardUseCompatPadding="true"
+            card_view:contentPadding="5dp">
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:lines="1"
+                android:text="150 $"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp" />
+
+        </android.support.v7.widget.CardView>
 
     </RelativeLayout>
 
-    <RelativeLayout
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="8dp">
-
-      <TextView
-        android:id="@+id/type"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-        android:textColor="@android:color/black"
-        tools:ignore="RelativeOverlap"
-        tools:text="Price" />
+        android:layout_marginTop="140dp"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="24dp">
 
-      <ToggleButton
-        android:id="@+id/btn_favorite"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/toggle_selector"
-        android:checked="true"
-        android:text="ToggleButton"
-        android:textOff=""
-        android:textOn=""
-        android:visibility="gone" />
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:ellipsize="end"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                tools:text="Name" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textColor="@android:color/black"
+                tools:ignore="RelativeOverlap"
+                tools:text="Price" />
+
+            <ToggleButton
+                android:id="@+id/btn_favorite"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/toggle_selector"
+                android:checked="true"
+                android:text="ToggleButton"
+                android:textOff=""
+                android:textOn=""
+                android:visibility="gone" />
+        </RelativeLayout>
 
 
-  </LinearLayout>
+    </LinearLayout>
 
 </android.support.v7.widget.CardView>

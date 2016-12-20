@@ -9,6 +9,7 @@ import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -46,7 +47,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     private CallbackManager callbackManager;
 
     @BindView(R.id.layout_message_play)
-    RelativeLayout layout_message_play;
+    LinearLayout layout_message_play;
     @BindView(R.id.text_message_play)
     TextView text_message_play;
 

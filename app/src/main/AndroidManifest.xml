@@ -22,6 +22,11 @@
         android:glEsVersion="0x00020000"
         android:required="true" />
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:name=".TestAirbnb"
         android:allowBackup="true"
@@ -71,6 +76,9 @@
             android:enabled="true"
             android:process=":geofence" />
 
+        <activity
+            android:name=".ExampleLoginActivity"
+            android:label="@string/title_activity_example_login"></activity>
     </application>
 
 </manifest>
