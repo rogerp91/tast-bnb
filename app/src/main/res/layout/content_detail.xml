@@ -15,19 +15,17 @@
         android:visibility="gone">
 
         <LinearLayout
-            android:id="@+id/container_card_sub"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/padding_bottom_sub"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/padding_top_sub">
+            android:background="@android:color/transparent"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin">
 
                 <TextView
                     android:id="@+id/name"
@@ -37,27 +35,28 @@
                     android:ellipsize="end"
                     android:lines="1"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    tools:text="Name" />
 
                 <TextView
                     android:id="@+id/property_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_marginTop="5dp"
                     android:ellipsize="end"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                    android:textColor="@color/secondary_text" />
+                    android:textColor="@color/secondary_text"
+                    tools:text="property_type" />
 
                 <TextView
                     android:id="@+id/room_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_marginTop="5dp"
                     android:ellipsize="end"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                    android:textColor="@color/secondary_text" />
+                    android:textColor="@color/secondary_text"
+                    tools:text="room_type" />
             </LinearLayout>
 
             <LinearLayout
@@ -232,7 +231,8 @@
                     android:gravity="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textColor="@color/secondary_text"
-                    tools:ignore="RelativeOverlap" />
+                    tools:ignore="RelativeOverlap"
+                    tools:text="asdasdasd" />
 
             </LinearLayout>
 
@@ -242,13 +242,6 @@
                 android:layout_height="150dp"
                 android:layout_marginTop="25dp"
                 android:apiKey="@string/google_maps_key" />
-
-            <!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"-->
-            <!--android:id="@+id/map"-->
-            <!--class="com.google.android.gms.maps.SupportMapFragment"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="150dp"-->
-            <!--android:layout_marginTop="25dp" />-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -268,10 +261,12 @@
                     android:lines="1"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                     android:textColor="@color/secondary_text"
-                    tools:ignore="RelativeOverlap" />
+                    tools:ignore="RelativeOverlap"
+                    tools:text="asdasdasdas" />
 
             </LinearLayout>
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
+
 </android.support.v4.widget.NestedScrollView>

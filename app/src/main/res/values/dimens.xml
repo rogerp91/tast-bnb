@@ -13,5 +13,18 @@
     <dimen name="img_height_logo">180dp</dimen>
     <dimen name="margin_top_btn_facebook">45dp</dimen>
     <dimen name="margin_top_text_play_service">6dp</dimen>
+    <dimen name="item_height_frgment_layout">152dp</dimen>
+    <dimen name="item_bottom_card">8dp</dimen>
+    <dimen name="item_card_price_width">85dp</dimen>
+    <dimen name="item_card_price_height">37dp</dimen>
+    <dimen name="item_card_price_top">110dp</dimen>
+    <dimen name="item_card_padding">5dp</dimen>
+    <dimen name="layout_bottom_name">8dp</dimen>
+    <dimen name="layout_top_name">24dp</dimen>
+    <dimen name="detail_height_img">160dp</dimen>
+    <dimen name="heigth_app_layout">200dp</dimen>
+    <dimen name="margin_top_progress_text_view">16dp</dimen>
+    <dimen name="margin_top_sub_title_progress">10dp</dimen>
+    <dimen name="margin_top_required_progress">40dp</dimen>
 
 </resources>

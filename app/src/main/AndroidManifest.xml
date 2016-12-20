@@ -78,7 +78,7 @@
 
         <activity
             android:name=".ExampleLoginActivity"
-            android:label="@string/title_activity_example_login"></activity>
+            android:label="@string/title_activity_example_login" />
     </application>
 
 </manifest>

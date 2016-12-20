@@ -22,6 +22,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -106,7 +107,7 @@ public class MapFragment extends BaseFragment implements MapContract.View,
     TextView text_message_loc;
 
     @BindView(R.id.container_map)
-    RelativeLayout container_map;
+    FrameLayout container_map;
 
     private SupportMapFragment mapFragment;
     private GoogleMap mMap;

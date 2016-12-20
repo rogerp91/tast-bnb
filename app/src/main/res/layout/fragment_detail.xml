@@ -11,8 +11,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/ex_airbnd"
+        android:layout_height="@dimen/heigth_app_layout"
         android:theme="@style/AppTheme.AppBarOverlay"
         android:visibility="gone">
 
@@ -29,16 +28,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/back_load"
-                android:gravity="bottom"
                 android:orientation="vertical">
 
-                <!--<ImageView-->
-                <!--android:id="@+id/img_backgroud"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:contentDescription="@string/app_name"-->
-                <!--android:scaleType="centerCrop" />-->
+                <ImageView
+                    android:id="@+id/img_backgroud"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

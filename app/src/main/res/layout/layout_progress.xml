@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/margin_top_progress_text_view"
             android:gravity="center"
             android:textSize="16sp"
             tools:text="Error" />
@@ -40,12 +40,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_message"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/margin_top_sub_title_progress"
             android:text="Retry"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="18sp" />
 
     </RelativeLayout>
+
 
     <!-- Permission -->
     <RelativeLayout
@@ -60,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/margin_top_progress_text_view"
             android:gravity="center"
             android:textSize="16sp"
             tools:text="Required permission" />
@@ -71,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_message_per"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/margin_top_sub_title_progress"
             android:text="Retry"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="18sp" />
@@ -102,7 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/margin_top_progress_text_view"
             android:gravity="center"
             android:textSize="16sp"
             tools:text="Required active GPS" />
@@ -113,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_message_gps"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/margin_top_sub_title_progress"
             android:text="Retry"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="18sp" />
@@ -124,7 +125,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_try_again_gps"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="@dimen/margin_top_required_progress"
             android:text="Open Setting GPS"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="18sp" />
@@ -144,7 +145,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/margin_top_progress_text_view"
             android:gravity="center"
             android:textSize="16sp"
             tools:text="Your location was not found" />
@@ -155,7 +156,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_message_loc"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/margin_top_sub_title_progress"
             android:text="Retry"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="18sp" />
@@ -166,7 +167,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_try_again_loc"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="@dimen/margin_top_required_progress"
             android:text="Show location in Los Angeles"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="18sp" />

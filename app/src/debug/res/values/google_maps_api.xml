@@ -4,10 +4,10 @@
 
     To get one, follow this link, follow the directions and press "Create" at the end:
 
-    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=51:84:48:D6:9E:C8:37:56:83:25:EE:BC:FE:72:58:A9:75:88:68:BB%3Bcom.github.testairbnd.ui
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=33:41:9E:16:4D:49:F3:88:A3:88:FD:78:2C:B9:3C:EB:E2:18:CC:22%3Bcom.github.testairbnd.util
 
     You can also add your credentials to an existing key, using this line:
-    51:84:48:D6:9E:C8:37:56:83:25:EE:BC:FE:72:58:A9:75:88:68:BB;com.github.testairbnd.ui
+    33:41:9E:16:4D:49:F3:88:A3:88:FD:78:2C:B9:3C:EB:E2:18:CC:22;com.github.testairbnd.util
 
     Alternatively, follow the directions here:
     https://developers.google.com/maps/documentation/android/start#get-key
