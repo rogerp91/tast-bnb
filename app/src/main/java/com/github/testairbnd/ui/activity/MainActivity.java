@@ -1,6 +1,8 @@
 package com.github.testairbnd.ui.activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,8 +18,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.afollestad.materialdialogs.DialogAction;
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.github.rogerp91.pref.SP;
 import com.github.testairbnd.R;
 import com.github.testairbnd.contract.MainContact;
@@ -97,23 +97,40 @@ public class MainActivity extends BaseActivity implements MainContact.View {
 
     @Override
     public void showDialogGPS() {
-        new MaterialDialog.Builder(this).title(R.string.setting_gps_title).
-                content(R.string.setting_gps_content)
-                .positiveText(R.string.setting_gps_disagree)
-                .negativeText(R.string.setting_gps_agree)
-                .onNegative(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+//        new MaterialDialog.Builder(this).title(R.string.setting_gps_title).
+//                content(R.string.setting_gps_content)
+//                .positiveText(R.string.setting_gps_disagree)
+//                .negativeText(R.string.setting_gps_agree)
+//                .onNegative(new MaterialDialog.SingleButtonCallback() {
+//                    @Override
+//                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+//                        dialog.dismiss();
+//                        startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+//                    }
+//                }).onPositive(new MaterialDialog.SingleButtonCallback() {
+//            @Override
+//            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+//                SP.putBoolean(NO_DIALOG_SHOW, true);
+//                sendBroadcast(new Intent(INTENT_ACTION_NOT_GPS_ACTIVE));
+//            }
+//        }).show();
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+        alertDialogBuilder.setTitle(R.string.setting_gps_title);
+        alertDialogBuilder.setMessage(R.string.setting_gps_content)
+                .setPositiveButton(R.string.setting_gps_disagree, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        SP.putBoolean(NO_DIALOG_SHOW, true);
+                        sendBroadcast(new Intent(INTENT_ACTION_NOT_GPS_ACTIVE));
+                    }
+                })
+                .setNegativeButton(R.string.setting_gps_agree, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
                         dialog.dismiss();
                         startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
                     }
-                }).onPositive(new MaterialDialog.SingleButtonCallback() {
-            @Override
-            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                SP.putBoolean(NO_DIALOG_SHOW, true);
-                sendBroadcast(new Intent(INTENT_ACTION_NOT_GPS_ACTIVE));
-            }
-        }).show();
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 
     @PermissionSuccess(requestCode = 100)
