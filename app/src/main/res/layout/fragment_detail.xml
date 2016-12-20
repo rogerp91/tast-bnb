@@ -8,6 +8,8 @@
 
     <include layout="@layout/layout_progress" />
 
+    <include layout="@layout/content_detail" />
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
@@ -25,9 +27,10 @@
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@android:color/white"
                 android:orientation="vertical">
 
                 <ImageView
@@ -35,27 +38,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ex_airbnd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:background="@android:color/transparent"
-                    android:gravity="bottom"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/item_card_price_top2"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <android.support.v7.widget.CardView
-                        android:layout_width="75dp"
-                        android:layout_height="37dp"
-                        android:layout_gravity="center"
+                        android:layout_width="@dimen/item_card_price_width"
+                        android:layout_height="@dimen/item_card_price_height"
+                        android:layout_gravity="left"
                         app:cardBackgroundColor="@android:color/white"
                         card_view:cardCornerRadius="@dimen/cardview_default_radius"
                         card_view:cardElevation="@dimen/cardview_default_elevation"
-                        card_view:cardUseCompatPadding="true"
-                        card_view:contentPadding="5dp">
+                        card_view:contentPadding="@dimen/item_card_padding">
 
                         <TextView
                             android:id="@+id/price"
@@ -78,9 +80,10 @@
                         android:id="@+id/btn_favorite"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_gravity="center"
+                        android:layout_gravity="right"
                         android:background="@drawable/toggle_selector"
                         android:checked="true"
+                        android:gravity="right"
                         android:text="ToggleButton"
                         android:textOff=""
                         android:textOn=""
@@ -88,11 +91,10 @@
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </FrameLayout>
 
         </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_detail" />
+    </android.support.design.widget.AppBarLayout>
 
 </android.support.design.widget.CoordinatorLayout>
